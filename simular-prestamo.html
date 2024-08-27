@@ -44,6 +44,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="./dist/js/jquery.number.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   </head>
   <body>
     <script src="./dist/js/demo-theme.min.js?1692870487"></script>
@@ -566,9 +567,10 @@
                       >
                       <div class="input-icon mb-2">
                         <input
-                          class="form-control"
+                          class="form-control fechaDesembolso"
                           placeholder="Sleccionar fecha"
                           id="datepicker-icon"
+                          autocomplete="off"
                         />
                         <span class="input-icon-addon"
                           ><!-- Download SVG icon from http://tabler-icons.io/i/calendar -->
@@ -605,9 +607,10 @@
                         <div>
                           <input
                             type="text"
-                            class="form-control"
+                            class="form-control montoPrestamo"
                             placeholder="Monto"
                             id="importePrestamoSimularPrestamo"
+                            autocomplete="off"
                           />
                         </div>
                       </div>
@@ -616,11 +619,11 @@
                           >Periodo de Pago</label
                         >
                         <div>
-                          <select class="form-select">
+                          <select class="form-select periodoPrestamo">
                             <option value="">Seleccionar</option>
-                            <option value="semanal">Semanal</option>
-                            <option value="quincenal">Quincenal</option>
-                            <option value="mensual">Mensual</option>
+                            <option value="7">Semanal</option>
+                            <option value="15">Quincenal</option>
+                            <option value="30">Mensual</option>
                           </select>
                         </div>
                       </div>
@@ -632,7 +635,7 @@
                         <div class="input-group">
                           <input
                             type="text"
-                            class="form-control"
+                            class="form-control interesPrestamo"
                             placeholder="Interes"
                             autocomplete="off"
                           />
@@ -644,15 +647,20 @@
                         <div>
                           <input
                             type="number"
-                            class="form-control"
+                            class="form-control plazoPrestamo"
                             placeholder="Plazo"
+                            autocomplete="off"
                           />
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="card-footer text-end">
-                    <button type="button" class="btn btn-primary">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      id="btnCalcularCuota"
+                    >
                       Calcular Cuotas
                     </button>
                   </div>
@@ -668,7 +676,7 @@
                     <table class="table table-transparent table-responsive">
                       <thead>
                         <tr>
-                          <th class="text-center"></th>
+                          <th class="text-center" style="width: 1">#</th>
                           <th class="text-center">Cuota</th>
                           <th class="text-center">Capital</th>
                           <th class="text-center">Interes</th>
@@ -676,72 +684,76 @@
                           <th class="text-center">Fecha</th>
                         </tr>
                       </thead>
-                      <tr>
-                        <td class="text-center">0</td>
-                        <td class="text-center">MX$ 0.00</td>
-                        <td class="text-center">MX$ 0.00</td>
-                        <td class="text-center">MX$ 0.00</td>
-                        <td class="text-center">MX$ 0.00</td>
-                        <td class="text-center">16/01/2024</td>
-                      </tr>
+                      <tbody id="tablaCalculoCuotas">
+                        <!-- <tr>
+                          <td class="text-center">0</td>
+                          <td class="text-center">$0.00</td>
+                          <td class="text-center">$0.00</td>
+                          <td class="text-center">$0.00</td>
+                          <td class="text-center">$0.00</td>
+                          <td class="text-center">16/01/2024</td>
+                        </tr>
 
-                      <tr>
-                        <td class="text-center">1</td>
-                        <td class="text-center">MX$ 987.70</td>
-                        <td class="text-center">MX$ 627.70</td>
-                        <td class="text-center">MX$ 360.00</td>
-                        <td class="text-center">MX$ 2,372.30</td>
-                        <td class="text-center">16/01/2024</td>
-                      </tr>
+                        <tr>
+                          <td class="text-center">1</td>
+                          <td class="text-center">$987.70</td>
+                          <td class="text-center">$627.70</td>
+                          <td class="text-center">$360.00</td>
+                          <td class="text-center">$2,372.30</td>
+                          <td class="text-center">16/01/2024</td>
+                        </tr>
 
-                      <tr>
-                        <td class="text-center">2</td>
-                        <td class="text-center">MX$ 987.70</td>
-                        <td class="text-center">MX$ 703.03</td>
-                        <td class="text-center">MX$ 284.68</td>
-                        <td class="text-center">MX$ 1,669.27</td>
-                        <td class="text-center">16/01/2024</td>
-                      </tr>
+                        <tr>
+                          <td class="text-center">2</td>
+                          <td class="text-center">$987.70</td>
+                          <td class="text-center">$703.03</td>
+                          <td class="text-center">$284.68</td>
+                          <td class="text-center">$1,669.27</td>
+                          <td class="text-center">16/01/2024</td>
+                        </tr>
 
-                      <tr>
-                        <td class="text-center">3</td>
-                        <td class="text-center">MX$ 987.70</td>
-                        <td class="text-center">MX$ 787.39</td>
-                        <td class="text-center">MX$ 200.31</td>
-                        <td class="text-center">MX$ 881.88</td>
-                        <td class="text-center">16/01/2024</td>
-                      </tr>
+                        <tr>
+                          <td class="text-center">3</td>
+                          <td class="text-center">$987.70</td>
+                          <td class="text-center">$787.39</td>
+                          <td class="text-center">$200.31</td>
+                          <td class="text-center">$881.88</td>
+                          <td class="text-center">16/01/2024</td>
+                        </tr>
 
-                      <tr>
-                        <td class="text-center">4</td>
-                        <td class="text-center">MX$ 987.70</td>
-                        <td class="text-center">MX$ 881.88</td>
-                        <td class="text-center">MX$ 105.83</td>
-                        <td class="text-center">MX$ 0.00</td>
-                        <td class="text-center">16/01/2024</td>
-                      </tr>
+                        <tr>
+                          <td class="text-center">4</td>
+                          <td class="text-center">$987.70</td>
+                          <td class="text-center">$881.88</td>
+                          <td class="text-center">$105.83</td>
+                          <td class="text-center">$0.00</td>
+                          <td class="text-center">16/01/2024</td>
+                        </tr> -->
 
-                      <tr>
-                        <td colspan="5" class="strong text-end">
-                          Total Prestamo
-                        </td>
-                        <td class="text-end">MX$ 3,000.00</td>
-                      </tr>
-                      <tr>
-                        <td colspan="5" class="strong text-end">
-                          Total Interes:
-                        </td>
-                        <td class="text-end">MX$ 950.80</td>
-                      </tr>
-                      <tr>
-                        <td
-                          colspan="5"
-                          class="font-weight-bold text-uppercase text-end"
-                        >
-                          Total a Pagar
-                        </td>
-                        <td class="font-weight-bold text-end">MX$ 3,950.80</td>
-                      </tr>
+                        <!-- <tr>
+                          <td colspan="5" class="strong text-end">
+                            Total Prestamo:
+                          </td>
+                          <td class="text-end">MX$ 3,000.00</td>
+                        </tr>
+                        <tr>
+                          <td colspan="5" class="strong text-end">
+                            Total Interes:
+                          </td>
+                          <td class="text-end">MX$ 950.80</td>
+                        </tr>
+                        <tr>
+                          <td
+                            colspan="5"
+                            class="font-weight-bold text-uppercase text-end"
+                          >
+                            Total a Pagar:
+                          </td>
+                          <td class="font-weight-bold text-end">
+                            MX$ 3,950.80
+                          </td>
+                        </tr> -->
+                      </tbody>
                     </table>
                   </div>
                 </div>
@@ -967,5 +979,6 @@
       });
       // @formatter:on
     </script>
+    <script src="js/simularPrestamo.js"></script>
   </body>
 </html>

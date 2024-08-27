@@ -1,0 +1,38 @@
+<label for="dt_fecha_nacimiento">Fecha prestamo: </label>
+<input type="date" id="dt_fecha_nacimiento" /><br />
+<label for="cmb_dias">Periodo: </label>
+<input type="number" id="cmb_dias" /><br />
+<select id=""></select>
+<label for="cmb_dias">cuotas: </label>
+<input type="number" id="cmb_cuotas" /><br />
+<label for="dt_fecha_siguiente_etapa">Fecha siguiente etapa: </label>
+<input type="text" id="dt_fecha_siguiente_etapa" /><br />
+<button id="calcular">Calcular</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+<script>
+  //Al hacer click en el botón... (Debes cambiar esta acción en tu proyecto)
+  $("#calcular").on("click", function () {
+    //Obtener la fecha de nacimiento
+    let fecha = $("#dt_fecha_nacimiento").val();
+    console.log(fecha);
+    //Obtener la cantidad de días
+    let dias = $("#cmb_dias").val();
+    // opbtener periodo
+    let plazo = $("#cmb_cuotas").val();
+    //Calcular la sumatoria
+    let fecha2;
+    //creamos el array
+    var fechas = [];
+
+    for (var i = 1; i <= plazo; i++) {
+      fecha2 = moment(fecha).add(dias, "days").format("YYYY-MM-DD");
+      fechas.push(fecha2);
+      fecha = fecha2;
+    }
+    //Asignar la nueva fecha al input siguiente etapa
+    console.log(fechas);
+  });
+</script>
