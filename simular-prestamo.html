@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta20
+* @link https://tabler.io
+* Copyright 2018-2023 The Tabler Authors
+* Copyright 2018-2023 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MONE-Y</title>
+    <!-- CSS files -->
+    <link href="./dist/css/tabler.min.css?1692870487" rel="stylesheet" />
+    <link href="./dist/css/tabler-flags.min.css?1692870487" rel="stylesheet" />
+    <link
+      href="./dist/css/tabler-payments.min.css?1692870487"
+      rel="stylesheet"
+    />
+    <link
+      href="./dist/css/tabler-vendors.min.css?1692870487"
+      rel="stylesheet"
+    />
+    <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet" />
+    <style>
+      @import url("https://rsms.me/inter/inter.css");
+      :root {
+        --tblr-font-sans-serif: "Inter Var", -apple-system, BlinkMacSystemFont,
+          San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+        font-feature-settings: "cv03", "cv04", "cv11";
+      }
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./dist/js/jquery.number.min.js"></script>
+  </head>
+  <body>
+    <script src="./dist/js/demo-theme.min.js?1692870487"></script>
+    <div class="page">
+      <!-- Navbar -->
+      <header class="navbar navbar-expand-md d-print-none">
+        <div class="container-xl">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar-menu"
+            aria-controls="navbar-menu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <h1
+            class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3"
+          >
+            <a href=".">
+              <img
+                src="./static/logo.svg"
+                width="110"
+                height="32"
+                alt="Tabler"
+                class="navbar-brand-image"
+              />
+            </a>
+          </h1>
+          <div class="navbar-nav flex-row order-md-last">
+            <div class="nav-item d-none d-md-flex me-3">
+              <div class="btn-list"></div>
+            </div>
+            <div class="d-none d-md-flex">
+              <a
+                href="?theme=dark"
+                class="nav-link px-0 hide-theme-dark"
+                title="Enable dark mode"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+              >
+                <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="?theme=light"
+                class="nav-link px-0 hide-theme-light"
+                title="Enable light mode"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+              >
+                <!-- Download SVG icon from http://tabler-icons.io/i/sun -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                  <path
+                    d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
+                  />
+                </svg>
+              </a>
+              <div class="nav-item dropdown d-none d-md-flex me-3">
+                <a
+                  href="#"
+                  class="nav-link px-0"
+                  data-bs-toggle="dropdown"
+                  tabindex="-1"
+                  aria-label="Show notifications"
+                >
+                  <!-- Download SVG icon from http://tabler-icons.io/i/bell -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"
+                    />
+                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                  </svg>
+                  <span class="badge bg-red"></span>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card"
+                >
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">Last updates</h3>
+                    </div>
+                    <div
+                      class="list-group list-group-flush list-group-hoverable"
+                    >
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span
+                              class="status-dot status-dot-animated bg-red d-block"
+                            ></span>
+                          </div>
+                          <div class="col text-truncate">
+                            <a href="#" class="text-body d-block">Example 1</a>
+                            <div
+                              class="d-block text-secondary text-truncate mt-n1"
+                            >
+                              Change deprecated html tags to text decoration
+                              classes (#29604)
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="list-group-item-actions">
+                              <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="icon text-muted"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"
+                                />
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span class="status-dot d-block"></span>
+                          </div>
+                          <div class="col text-truncate">
+                            <a href="#" class="text-body d-block">Example 2</a>
+                            <div
+                              class="d-block text-secondary text-truncate mt-n1"
+                            >
+                              justify-content:between ⇒
+                              justify-content:space-between (#29734)
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="list-group-item-actions show">
+                              <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="icon text-yellow"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"
+                                />
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span class="status-dot d-block"></span>
+                          </div>
+                          <div class="col text-truncate">
+                            <a href="#" class="text-body d-block">Example 3</a>
+                            <div
+                              class="d-block text-secondary text-truncate mt-n1"
+                            >
+                              Update change-version.js (#29736)
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="list-group-item-actions">
+                              <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="icon text-muted"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"
+                                />
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span
+                              class="status-dot status-dot-animated bg-green d-block"
+                            ></span>
+                          </div>
+                          <div class="col text-truncate">
+                            <a href="#" class="text-body d-block">Example 4</a>
+                            <div
+                              class="d-block text-secondary text-truncate mt-n1"
+                            >
+                              Regenerate package-lock.json (#29730)
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="list-group-item-actions">
+                              <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="icon text-muted"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"
+                                />
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link d-flex lh-1 text-reset p-0"
+                data-bs-toggle="dropdown"
+                aria-label="Open user menu"
+              >
+                <span
+                  class="avatar avatar-sm"
+                  style="background-image: url(./static/avatars/000m.jpg)"
+                ></span>
+                <div class="d-none d-xl-block ps-2">
+                  <div>Paweł Kuna</div>
+                  <div class="mt-1 small text-secondary">UI Designer</div>
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <a href="#" class="dropdown-item">Status</a>
+                <a href="./profile.html" class="dropdown-item">Profile</a>
+                <a href="#" class="dropdown-item">Feedback</a>
+                <div class="dropdown-divider"></div>
+                <a href="./settings.html" class="dropdown-item">Settings</a>
+                <a href="./sign-in.html" class="dropdown-item">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <header class="navbar-expand-md">
+        <div class="collapse navbar-collapse" id="navbar-menu">
+          <div class="navbar">
+            <div class="container-xl">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block"
+                      ><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                      </svg>
+                    </span>
+                    <span class="nav-link-title"> Inicio </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="usuarios.html">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-user-cog"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h2.5" />
+                        <path
+                          d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"
+                        />
+                        <path d="M19.001 15.5v1.5" />
+                        <path d="M19.001 21v1.5" />
+                        <path d="M22.032 17.25l-1.299 .75" />
+                        <path d="M17.27 20l-1.3 .75" />
+                        <path d="M15.97 17.25l1.3 .75" />
+                        <path d="M20.733 20l1.3 .75" />
+                      </svg>
+                    </span>
+                    <span class="nav-link-title"> Usuarios </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="clientes.html">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-user-dollar"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h3" />
+                        <path
+                          d="M21 15h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"
+                        />
+                        <path d="M19 21v1m0 -8v1" />
+                      </svg>
+                    </span>
+                    <span class="nav-link-title"> Clientes </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="caja.html">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-pig-money"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M15 11v.01" />
+                        <path d="M5.173 8.378a3 3 0 1 1 4.656 -1.377" />
+                        <path
+                          d="M16 4v3.803a6.019 6.019 0 0 1 2.658 3.197h1.341a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-1.342c-.336 .95 -.907 1.8 -1.658 2.473v2.027a1.5 1.5 0 0 1 -3 0v-.583a6.04 6.04 0 0 1 -1 .083h-4a6.04 6.04 0 0 1 -1 -.083v.583a1.5 1.5 0 0 1 -3 0v-2l0 -.027a6 6 0 0 1 4 -10.473h2.5l4.5 -3h0z"
+                        />
+                      </svg>
+                    </span>
+                    <span class="nav-link-title"> Caja </span>
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="simular-prestamo.html">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="icon icon-tabler icons-tabler-outline icon-tabler-eye"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                      <path
+                        d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"
+                      />
+                    </svg>
+                    <span class="nav-link-title"> Simular Prestamo </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="reportes.html">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-chart-histogram"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M3 3v18h18" />
+                        <path d="M20 18v3" />
+                        <path d="M16 16v5" />
+                        <path d="M12 13v8" />
+                        <path d="M8 16v5" />
+                        <path d="M3 11c6 0 5 -5 9 -5s3 5 9 5" />
+                      </svg>
+                    </span>
+                    <span class="nav-link-title"> Reportes </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="page-wrapper">
+        <!-- Page body -->
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row row-deck row-cards">
+              <div class="col-12">
+                <div class="row row-cards"></div>
+              </div>
+
+              <div class="col-lg-5">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Datos del Prestamo</h3>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-3">
+                      <label class="form-label required"
+                        >Fecha del desembolso</label
+                      >
+                      <div class="input-icon mb-2">
+                        <input
+                          class="form-control"
+                          placeholder="Sleccionar fecha"
+                          id="datepicker-icon"
+                        />
+                        <span class="input-icon-addon"
+                          ><!-- Download SVG icon from http://tabler-icons.io/i/calendar -->
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path
+                              d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"
+                            />
+                            <path d="M16 3v4" />
+                            <path d="M8 3v4" />
+                            <path d="M4 11h16" />
+                            <path d="M11 15h1" />
+                            <path d="M12 15v3" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-lg-6 mb-3">
+                        <label class="form-label required"
+                          >Importe del préstamo</label
+                        >
+                        <div>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Monto"
+                            id="importePrestamoSimularPrestamo"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 mb-3">
+                        <label class="form-label required"
+                          >Periodo de Pago</label
+                        >
+                        <div>
+                          <select class="form-select">
+                            <option value="">Seleccionar</option>
+                            <option value="semanal">Semanal</option>
+                            <option value="quincenal">Quincenal</option>
+                            <option value="mensual">Mensual</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12 col-lg-6 mb-3">
+                        <label class="form-label required">Interés</label>
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Interes"
+                            autocomplete="off"
+                          />
+                          <span class="input-group-text"> % </span>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 mb-3">
+                        <label class="form-label required">Plazo</label>
+                        <div>
+                          <input
+                            type="number"
+                            class="form-control"
+                            placeholder="Plazo"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer text-end">
+                    <button type="button" class="btn btn-primary">
+                      Calcular Cuotas
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-7">
+                <div class="card">
+                  <div class="card-header border-0">
+                    <div class="card-title">Tabla de Amortizaciones</div>
+                  </div>
+                  <div class="card-table table-responsive">
+                    <table class="table table-transparent table-responsive">
+                      <thead>
+                        <tr>
+                          <th class="text-center"></th>
+                          <th class="text-center">Cuota</th>
+                          <th class="text-center">Capital</th>
+                          <th class="text-center">Interes</th>
+                          <th class="text-center">Saldo</th>
+                          <th class="text-center">Fecha</th>
+                        </tr>
+                      </thead>
+                      <tr>
+                        <td class="text-center">0</td>
+                        <td class="text-center">MX$ 0.00</td>
+                        <td class="text-center">MX$ 0.00</td>
+                        <td class="text-center">MX$ 0.00</td>
+                        <td class="text-center">MX$ 0.00</td>
+                        <td class="text-center">16/01/2024</td>
+                      </tr>
+
+                      <tr>
+                        <td class="text-center">1</td>
+                        <td class="text-center">MX$ 987.70</td>
+                        <td class="text-center">MX$ 627.70</td>
+                        <td class="text-center">MX$ 360.00</td>
+                        <td class="text-center">MX$ 2,372.30</td>
+                        <td class="text-center">16/01/2024</td>
+                      </tr>
+
+                      <tr>
+                        <td class="text-center">2</td>
+                        <td class="text-center">MX$ 987.70</td>
+                        <td class="text-center">MX$ 703.03</td>
+                        <td class="text-center">MX$ 284.68</td>
+                        <td class="text-center">MX$ 1,669.27</td>
+                        <td class="text-center">16/01/2024</td>
+                      </tr>
+
+                      <tr>
+                        <td class="text-center">3</td>
+                        <td class="text-center">MX$ 987.70</td>
+                        <td class="text-center">MX$ 787.39</td>
+                        <td class="text-center">MX$ 200.31</td>
+                        <td class="text-center">MX$ 881.88</td>
+                        <td class="text-center">16/01/2024</td>
+                      </tr>
+
+                      <tr>
+                        <td class="text-center">4</td>
+                        <td class="text-center">MX$ 987.70</td>
+                        <td class="text-center">MX$ 881.88</td>
+                        <td class="text-center">MX$ 105.83</td>
+                        <td class="text-center">MX$ 0.00</td>
+                        <td class="text-center">16/01/2024</td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="5" class="strong text-end">
+                          Total Prestamo
+                        </td>
+                        <td class="text-end">MX$ 3,000.00</td>
+                      </tr>
+                      <tr>
+                        <td colspan="5" class="strong text-end">
+                          Total Interes:
+                        </td>
+                        <td class="text-end">MX$ 950.80</td>
+                      </tr>
+                      <tr>
+                        <td
+                          colspan="5"
+                          class="font-weight-bold text-uppercase text-end"
+                        >
+                          Total a Pagar
+                        </td>
+                        <td class="font-weight-bold text-end">MX$ 3,950.80</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer footer-transparent d-print-none">
+          <div class="container-xl">
+            <div class="row text-center align-items-center flex-row-reverse">
+              <div class="col-lg-auto ms-lg-auto"></div>
+              <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item">
+                    Copyright &copy; 2024
+                    <a href="#" class="link-secondary">MONE-Y</a>. All rights
+                    reserved.
+                  </li>
+                  <li class="list-inline-item">
+                    <a
+                      href="./changelog.html"
+                      class="link-secondary"
+                      rel="noopener"
+                    >
+                      v1.0.0-beta20
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <div
+      class="modal modal-blur fade"
+      id="modal-report"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">New report</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="example-text-input"
+                placeholder="Your report name"
+              />
+            </div>
+            <label class="form-label">Report type</label>
+            <div class="form-selectgroup-boxes row mb-3">
+              <div class="col-lg-6">
+                <label class="form-selectgroup-item">
+                  <input
+                    type="radio"
+                    name="report-type"
+                    value="1"
+                    class="form-selectgroup-input"
+                    checked
+                  />
+                  <span
+                    class="form-selectgroup-label d-flex align-items-center p-3"
+                  >
+                    <span class="me-3">
+                      <span class="form-selectgroup-check"></span>
+                    </span>
+                    <span class="form-selectgroup-label-content">
+                      <span class="form-selectgroup-title strong mb-1"
+                        >Simple</span
+                      >
+                      <span class="d-block text-secondary"
+                        >Provide only basic data needed for the report</span
+                      >
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div class="col-lg-6">
+                <label class="form-selectgroup-item">
+                  <input
+                    type="radio"
+                    name="report-type"
+                    value="1"
+                    class="form-selectgroup-input"
+                  />
+                  <span
+                    class="form-selectgroup-label d-flex align-items-center p-3"
+                  >
+                    <span class="me-3">
+                      <span class="form-selectgroup-check"></span>
+                    </span>
+                    <span class="form-selectgroup-label-content">
+                      <span class="form-selectgroup-title strong mb-1"
+                        >Advanced</span
+                      >
+                      <span class="d-block text-secondary"
+                        >Insert charts and additional advanced analyses to be
+                        inserted in the report</span
+                      >
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="mb-3">
+                  <label class="form-label">Report url</label>
+                  <div class="input-group input-group-flat">
+                    <span class="input-group-text">
+                      https://tabler.io/reports/
+                    </span>
+                    <input
+                      type="text"
+                      class="form-control ps-0"
+                      value="report-01"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label class="form-label">Visibility</label>
+                  <select class="form-select">
+                    <option value="1" selected>Private</option>
+                    <option value="2">Public</option>
+                    <option value="3">Hidden</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label class="form-label">Client name</label>
+                  <input type="text" class="form-control" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label class="form-label">Reporting period</label>
+                  <input type="date" class="form-control" />
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div>
+                  <label class="form-label">Additional information</label>
+                  <textarea class="form-control" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a
+              href="#"
+              class="btn btn-link link-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </a>
+            <a href="#" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
+              <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 5l0 14" />
+                <path d="M5 12l14 0" />
+              </svg>
+              Create new report
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Libs JS -->
+    <script
+      src="./dist/libs/litepicker/dist/litepicker.js?1692870487"
+      defer
+    ></script>
+    <!-- Tabler Core -->
+    <script src="./dist/js/tabler.min.js?1692870487" defer></script>
+    <script src="./dist/js/demo.min.js?1692870487" defer></script>
+    <script>
+      $("#importePrestamoSimularPrestamo").number(true, 2);
+      // @formatter:off
+      document.addEventListener("DOMContentLoaded", function () {
+        window.Litepicker &&
+          new Litepicker({
+            element: document.getElementById("datepicker-icon"),
+            buttonText: {
+              previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>`,
+              nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>`,
+            },
+          });
+      });
+      // @formatter:on
+    </script>
+  </body>
+</html>
