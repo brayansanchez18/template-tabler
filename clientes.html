@@ -404,7 +404,7 @@
                     <span class="nav-link-title"> Inicio </span>
                   </a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                   <a class="nav-link" href="usuarios.html">
                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                       <svg
@@ -436,7 +436,7 @@
                     <span class="nav-link-title"> Usuarios </span>
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                   <a class="nav-link" href="clientes.html">
                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                       <svg
@@ -553,7 +553,7 @@
                 <div class="card-header">
                   <div class="float-left">
                     <a href="#" class="btn btn-ghost-info active btn-md">
-                      Agregar Usuario
+                      Agregar Cliente
                       <span style="margin-left: 10px">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -565,20 +565,13 @@
                           stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                          class="icon icon-tabler icons-tabler-outline icon-tabler-user-cog"
+                          class="icon icon-tabler icons-tabler-outline icon-tabler-user-plus"
                         >
                           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                           <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                          <path d="M6 21v-2a4 4 0 0 1 4 -4h2.5" />
-                          <path
-                            d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"
-                          />
-                          <path d="M19.001 15.5v1.5" />
-                          <path d="M19.001 21v1.5" />
-                          <path d="M22.032 17.25l-1.299 .75" />
-                          <path d="M17.27 20l-1.3 .75" />
-                          <path d="M15.97 17.25l1.3 .75" />
-                          <path d="M20.733 20l1.3 .75" />
+                          <path d="M16 19h6" />
+                          <path d="M19 16v6" />
+                          <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
                         </svg>
                       </span>
                     </a>
@@ -593,12 +586,11 @@
                       <tr>
                         <th>#</th>
                         <th>Foto</th>
+                        <th>No. de INE</th>
                         <th>Nombre</th>
-                        <th>Correo</th>
                         <th>Telefono</th>
-                        <th>Perfil</th>
-                        <th>Estado</th>
-                        <th>Ultimo Ingreso</th>
+                        <th>Correo</th>
+                        <th>Estado Crediticio</th>
                         <th>Acciones</th>
                       </tr>
                     </thead>
@@ -611,20 +603,49 @@
                             src="./static/avatars/000m.jpg"
                           />
                         </td>
-                        <td>Brayan Sánchez</td>
-                        <td>admin@admin.com</td>
+                        <td>123456789</td>
+                        <td>Brayan Emanuel Sanchez Ramirez</td>
                         <td>7295924900</td>
-                        <td>Administrador</td>
+                        <td>brayan.sanchez.contacto@gmail.com</td>
                         <td>
-                          <span class="badge bg-teal text-teal-fg">Activo</span>
+                          <span class="badge bg-red text-red-fg"
+                            >Con Deuda</span
+                          >
                         </td>
-                        <td>2024-08-27 19:50:16</td>
                         <td>
                           <div class="btn-group">
+                            <button class="btn btn-info" tooltip="cobrar">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-user-scan"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path d="M10 9a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                                <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
+                                <path d="M4 16v2a2 2 0 0 0 2 2h2" />
+                                <path d="M16 4h2a2 2 0 0 1 2 2v2" />
+                                <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
+                                <path
+                                  d="M8 16a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2"
+                                />
+                              </svg>
+                            </button>
                             <button
                               class="btn btn-warning"
                               data-toggle="modal"
-                              data-target="#modalEditarUsuario"
+                              data-target="#modalEditarPrestatario"
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -636,18 +657,20 @@
                                 stroke-width="2"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                class="icon icon-tabler icons-tabler-outline icon-tabler-user-edit"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-edit"
                               >
                                 <path
                                   stroke="none"
                                   d="M0 0h24v24H0z"
                                   fill="none"
                                 />
-                                <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                                <path d="M6 21v-2a4 4 0 0 1 4 -4h3.5" />
                                 <path
-                                  d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z"
+                                  d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"
                                 />
+                                <path
+                                  d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"
+                                />
+                                <path d="M16 5l3 3" />
                               </svg>
                             </button>
                             <button class="btn btn-danger">
@@ -690,20 +713,49 @@
                             src="./static/avatars/000f.jpg"
                           />
                         </td>
-                        <td>Jazmin Santiago Jilote</td>
-                        <td>jazmin@correo.com</td>
-                        <td>7295924900</td>
-                        <td>Especial</td>
+                        <td>456123479</td>
+                        <td>Jazmin Montserrath Santiago Jilote</td>
+                        <td>7222537253</td>
+                        <td>jazmin.santiago.jilote@correo.com</td>
                         <td>
-                          <span class="badge bg-red text-red-fg">Inactivo</span>
+                          <span class="badge bg-teal text-teal-fg"
+                            >Sin Deuda</span
+                          >
                         </td>
-                        <td>2024-08-27 19:50:16</td>
                         <td>
                           <div class="btn-group">
+                            <button class="btn btn-info" tooltip="cobrar">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-user-scan"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path d="M10 9a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                                <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
+                                <path d="M4 16v2a2 2 0 0 0 2 2h2" />
+                                <path d="M16 4h2a2 2 0 0 1 2 2v2" />
+                                <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
+                                <path
+                                  d="M8 16a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2"
+                                />
+                              </svg>
+                            </button>
                             <button
                               class="btn btn-warning"
                               data-toggle="modal"
-                              data-target="#modalEditarUsuario"
+                              data-target="#modalEditarPrestatario"
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -715,18 +767,20 @@
                                 stroke-width="2"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                class="icon icon-tabler icons-tabler-outline icon-tabler-user-edit"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-edit"
                               >
                                 <path
                                   stroke="none"
                                   d="M0 0h24v24H0z"
                                   fill="none"
                                 />
-                                <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                                <path d="M6 21v-2a4 4 0 0 1 4 -4h3.5" />
                                 <path
-                                  d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z"
+                                  d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"
                                 />
+                                <path
+                                  d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"
+                                />
+                                <path d="M16 5l3 3" />
                               </svg>
                             </button>
                             <button class="btn btn-danger">
@@ -761,6 +815,19 @@
                           </div>
                         </td>
                       </tr>
+                      <!-- <tr>
+                        <td>Paweł Kuna</td>
+                        <td class="text-secondary">UI Designer, Training</td>
+                        <td class="text-secondary">
+                          <a href="#" class="text-reset"
+                            >paweluna@howstuffworks.com</a
+                          >
+                        </td>
+                        <td class="text-secondary">User</td>
+                        <td>
+                          <a href="#">Edit</a>
+                        </td>
+                      </tr> -->
                     </tbody>
                   </table>
                 </div>
