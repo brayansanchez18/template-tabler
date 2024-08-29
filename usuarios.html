@@ -552,7 +552,11 @@
               <div class="card">
                 <div class="card-header">
                   <div class="float-left">
-                    <a href="#" class="btn btn-ghost-info active btn-md">
+                    <button
+                      class="btn btn-ghost-info active btn-md"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modal-crear-usuario"
+                    >
                       Agregar Usuario
                       <span style="margin-left: 10px">
                         <svg
@@ -581,7 +585,7 @@
                           <path d="M20.733 20l1.3 .75" />
                         </svg>
                       </span>
-                    </a>
+                    </button>
                   </div>
                 </div>
                 <div class="table-responsive">
@@ -597,6 +601,7 @@
                         <th>Correo</th>
                         <th>Telefono</th>
                         <th>Perfil</th>
+                        <th>Zona</th>
                         <th>Estado</th>
                         <th>Ultimo Ingreso</th>
                         <th>Acciones</th>
@@ -615,6 +620,7 @@
                         <td>admin@admin.com</td>
                         <td>7295924900</td>
                         <td>Administrador</td>
+                        <td>Metepec</td>
                         <td>
                           <span class="badge bg-teal text-teal-fg">Activo</span>
                         </td>
@@ -623,8 +629,8 @@
                           <div class="btn-group">
                             <button
                               class="btn btn-warning"
-                              data-toggle="modal"
-                              data-target="#modalEditarUsuario"
+                              data-bs-toggle="modal"
+                              data-bs-target="#modal-editar-usuario"
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -694,6 +700,7 @@
                         <td>jazmin@correo.com</td>
                         <td>7295924900</td>
                         <td>Especial</td>
+                        <td>San Mateo Atenco</td>
                         <td>
                           <span class="badge bg-red text-red-fg">Inactivo</span>
                         </td>
@@ -702,8 +709,8 @@
                           <div class="btn-group">
                             <button
                               class="btn btn-warning"
-                              data-toggle="modal"
-                              data-target="#modalEditarUsuario"
+                              data-bs-toggle="modal"
+                              data-bs-target="#modal-editar-usuario"
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -795,9 +802,13 @@
         </footer>
       </div>
     </div>
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                           MODAL CREAR USUARIO                           -->
+    <!-- ----------------------------------------------------------------------- -->
+
     <div
       class="modal modal-blur fade"
-      id="modal-report"
+      id="modal-crear-usuario"
       tabindex="-1"
       role="dialog"
       aria-hidden="true"
@@ -805,7 +816,7 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">New report</h5>
+            <h5 class="modal-title">Nuevo Usuario</h5>
             <button
               type="button"
               class="btn-close"
@@ -815,127 +826,95 @@
           </div>
           <div class="modal-body">
             <div class="mb-3">
-              <label class="form-label">Name</label>
+              <label class="form-label">Nombre Completo</label>
               <input
                 type="text"
                 class="form-control"
                 name="example-text-input"
-                placeholder="Your report name"
+                placeholder="Jhon Doe"
               />
             </div>
-            <label class="form-label">Report type</label>
-            <div class="form-selectgroup-boxes row mb-3">
-              <div class="col-lg-6">
-                <label class="form-selectgroup-item">
-                  <input
-                    type="radio"
-                    name="report-type"
-                    value="1"
-                    class="form-selectgroup-input"
-                    checked
-                  />
-                  <span
-                    class="form-selectgroup-label d-flex align-items-center p-3"
-                  >
-                    <span class="me-3">
-                      <span class="form-selectgroup-check"></span>
-                    </span>
-                    <span class="form-selectgroup-label-content">
-                      <span class="form-selectgroup-title strong mb-1"
-                        >Simple</span
-                      >
-                      <span class="d-block text-secondary"
-                        >Provide only basic data needed for the report</span
-                      >
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div class="col-lg-6">
-                <label class="form-selectgroup-item">
-                  <input
-                    type="radio"
-                    name="report-type"
-                    value="1"
-                    class="form-selectgroup-input"
-                  />
-                  <span
-                    class="form-selectgroup-label d-flex align-items-center p-3"
-                  >
-                    <span class="me-3">
-                      <span class="form-selectgroup-check"></span>
-                    </span>
-                    <span class="form-selectgroup-label-content">
-                      <span class="form-selectgroup-title strong mb-1"
-                        >Advanced</span
-                      >
-                      <span class="d-block text-secondary"
-                        >Insert charts and additional advanced analyses to be
-                        inserted in the report</span
-                      >
-                    </span>
-                  </span>
-                </label>
-              </div>
-            </div>
             <div class="row">
-              <div class="col-lg-8">
+              <div class="col-lg-6">
                 <div class="mb-3">
-                  <label class="form-label">Report url</label>
+                  <label class="form-label">Numero Telefonico</label>
                   <div class="input-group input-group-flat">
-                    <span class="input-group-text">
-                      https://tabler.io/reports/
-                    </span>
                     <input
                       type="text"
-                      class="form-control ps-0"
-                      value="report-01"
+                      name="input-mask"
+                      class="form-control"
+                      data-mask="(+00) 000-000-0000"
+                      data-mask-visible="true"
+                      placeholder="(+00) 000-000-0000"
                       autocomplete="off"
                     />
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4">
+              <div class="col-lg-6">
                 <div class="mb-3">
-                  <label class="form-label">Visibility</label>
+                  <label class="form-label">Zona</label>
                   <select class="form-select">
-                    <option value="1" selected>Private</option>
-                    <option value="2">Public</option>
-                    <option value="3">Hidden</option>
+                    <option value="" selected>Seleccionar</option>
+                    <option value="Metepec">Metepec</option>
+                    <option value="San Mateo Atenco">San Mateo Atenco</option>
                   </select>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">Client name</label>
-                  <input type="text" class="form-control" />
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">Reporting period</label>
-                  <input type="date" class="form-control" />
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div>
-                  <label class="form-label">Additional information</label>
-                  <textarea class="form-control" rows="3"></textarea>
-                </div>
-              </div>
+            <div class="mb-3">
+              <label class="form-label">Correo Electronico</label>
+              <input
+                type="text"
+                class="form-control"
+                name="example-text-input"
+                placeholder="correo@example.com"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                name="example-text-input"
+                placeholder="********"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Tipo de Perfil</label>
+              <select class="form-select">
+                <option value="" selected>Seleccionar</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Especial">Especial</option>
+                <option value="Recaudador">Recaudador</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">Seleccionar Foto</div>
+              <input type="file" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+              <center>
+                <img
+                  src="./static/avatars/000m.jpg"
+                  class="img-thumbnail previsualizar avatar avatar-lg"
+                  style="width: 35%; height: 35%"
+                />
+              </center>
             </div>
           </div>
+
           <div class="modal-footer">
             <a
               href="#"
               class="btn btn-link link-secondary"
               data-bs-dismiss="modal"
             >
-              Cancel
+              Cancelar
             </a>
             <a href="#" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
               <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
@@ -955,12 +934,155 @@
                 <path d="M12 5l0 14" />
                 <path d="M5 12l14 0" />
               </svg>
-              Create new report
+              Crear Usuario
             </a>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- ------------------------- MODAL CREAR USUARIO ------------------------- -->
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                          MODAL EDITAR USUARIO                           -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <div
+      class="modal modal-blur fade"
+      id="modal-editar-usuario"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Editar Usuario</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Nombre Completo</label>
+              <input
+                type="text"
+                class="form-control"
+                name="example-text-input"
+                placeholder="Jhon Doe"
+              />
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label class="form-label">Numero Telefonico</label>
+                  <div class="input-group input-group-flat">
+                    <input
+                      type="text"
+                      name="input-mask"
+                      class="form-control"
+                      data-mask="(+00) 000-000-0000"
+                      data-mask-visible="true"
+                      placeholder="(+00) 000-000-0000"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label class="form-label">Zona</label>
+                  <select class="form-select">
+                    <option value="" selected>Seleccionar</option>
+                    <option value="Metepec">Metepec</option>
+                    <option value="San Mateo Atenco">San Mateo Atenco</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Correo Electronico</label>
+              <input
+                type="text"
+                class="form-control"
+                name="example-text-input"
+                placeholder="correo@example.com"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                name="example-text-input"
+                placeholder="********"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Tipo de Perfil</label>
+              <select class="form-select">
+                <option value="" selected>Seleccionar</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Especial">Especial</option>
+                <option value="Recaudador">Recaudador</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">Seleccionar Foto</div>
+              <input type="file" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+              <center>
+                <img
+                  src="./static/avatars/000m.jpg"
+                  class="img-thumbnail previsualizar avatar avatar-lg"
+                  style="width: 35%; height: 35%"
+                />
+              </center>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <a
+              href="#"
+              class="btn btn-link link-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </a>
+            <a href="#" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
+              <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 5l0 14" />
+                <path d="M5 12l14 0" />
+              </svg>
+              Crear Usuario
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ------------------------ MODAL EDITAR USUARIO ------------------------- -->
     <!-- Libs JS -->
     <script
       src="./dist/libs/apexcharts/dist/apexcharts.min.js?1692870487"
