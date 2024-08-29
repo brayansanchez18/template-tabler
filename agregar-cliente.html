@@ -38,13 +38,6 @@
         font-feature-settings: "cv03", "cv04", "cv11";
       }
     </style>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-      crossorigin="anonymous"
-    ></script>
-    <script src="./dist/js/jquery.number.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   </head>
   <body>
     <script src="./dist/js/demo-theme.min.js?1692870487"></script>
@@ -438,7 +431,7 @@
                     <span class="nav-link-title"> Usuarios </span>
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                   <a class="nav-link" href="clientes.html">
                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                       <svg
@@ -491,7 +484,7 @@
                     <span class="nav-link-title"> Caja </span>
                   </a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                   <a class="nav-link" href="simular-prestamo.html">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -551,222 +544,202 @@
         <div class="page-body">
           <div class="container-xl">
             <div class="row row-deck row-cards">
-              <div class="col-12">
-                <div class="row row-cards"></div>
-              </div>
-
-              <div class="col-lg-5">
-                <div class="card">
-                  <div class="card-header">
-                    <h3 class="card-title">Datos del Prestamo</h3>
+              <div class="col-12 col-md-9 d-flex flex-column">
+                <div class="card-body">
+                  <h2 class="mb-4">Crear Cliente</h2>
+                  <h3 class="card-title">Datos del Cliente</h3>
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      <span
+                        class="avatar avatar-xl"
+                        style="background-image: url(./static/avatars/000m.jpg)"
+                      ></span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="form-label">Seleccionar Foto</div>
+                      <input type="file" class="form-control" />
+                    </div>
                   </div>
-                  <div class="card-body">
-                    <div class="mb-3">
-                      <label class="form-label required"
-                        >Perfil del Cliente</label
-                      >
-                      <select class="form-select periodoPrestamo">
-                        <option value="">Seleccionar</option>
-                        <option value="cliente">Cliente</option>
-                        <option value="especial">Especial</option>
+                  <h3 class="card-title mt-4"></h3>
+                  <div class="row g-3">
+                    <div class="col-md">
+                      <div class="form-label">Nombre(s)</div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Jhon"
+                      />
+                    </div>
+                    <div class="col-md">
+                      <div class="form-label">Apellidos</div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Doe Doe"
+                      />
+                    </div>
+                    <div class="col-md">
+                      <div class="form-label">Numero de INE</div>
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+
+                  <h3 class="card-title mt-4"></h3>
+                  <div class="row g-3">
+                    <div class="col-md">
+                      <div class="form-label">CURP</div>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md">
+                      <div class="form-label">Fecha de Nacimiento</div>
+                      <input
+                        type="text"
+                        name="input-mask"
+                        class="form-control"
+                        data-mask="0000-00-00"
+                        data-mask-visible="true"
+                        placeholder="0000-00-00"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <div class="col-md">
+                      <div class="form-label">Numero Telefonico</div>
+                      <input
+                        type="text"
+                        name="input-mask"
+                        class="form-control"
+                        data-mask="(+00) 000-000-0000"
+                        data-mask-visible="true"
+                        placeholder="(+00) 000-000-0000"
+                        autocomplete="off"
+                      />
+                    </div>
+                  </div>
+
+                  <h3 class="card-title mt-4"></h3>
+                  <div class="row g-3">
+                    <div class="col-md">
+                      <div class="form-label">Sexo</div>
+                      <select class="form-select">
+                        <option value="" selected>Seleccionar</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Otro">Otro</option>
                       </select>
                     </div>
 
-                    <div class="mb-3">
-                      <label class="form-label required"
-                        >Fecha del desembolso</label
-                      >
-                      <div class="input-icon mb-2">
-                        <input
-                          class="form-control fechaDesembolso"
-                          placeholder="Sleccionar fecha"
-                          id="datepicker-icon"
-                          autocomplete="off"
-                        />
-                        <span class="input-icon-addon"
-                          ><!-- Download SVG icon from http://tabler-icons.io/i/calendar -->
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="icon"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke="currentColor"
-                            fill="none"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                              d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"
-                            />
-                            <path d="M16 3v4" />
-                            <path d="M8 3v4" />
-                            <path d="M4 11h16" />
-                            <path d="M11 15h1" />
-                            <path d="M12 15v3" />
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12 col-lg-6 mb-3">
-                        <label class="form-label required"
-                          >Importe del préstamo</label
-                        >
-                        <div>
-                          <input
-                            type="text"
-                            class="form-control montoPrestamo"
-                            placeholder="Monto"
-                            id="importePrestamoSimularPrestamo"
-                            autocomplete="off"
-                          />
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 mb-3">
-                        <label class="form-label required"
-                          >Periodo de Pago</label
-                        >
-                        <div>
-                          <select class="form-select periodoPrestamo">
-                            <option value="">Seleccionar</option>
-                            <option value="7">Semanal</option>
-                            <option value="15">Quincenal</option>
-                            <option value="30">Mensual</option>
-                          </select>
-                        </div>
-                      </div>
+                    <div class="col-md">
+                      <div class="form-label">Correo Electronico</div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="jhon@correo.com"
+                      />
                     </div>
 
-                    <div class="row">
-                      <div class="col-12 col-lg-6 mb-3">
-                        <label class="form-label required">Interés</label>
-                        <div class="input-group">
-                          <input
-                            type="text"
-                            class="form-control interesPrestamo"
-                            placeholder="Interes"
-                            autocomplete="off"
-                          />
-                          <span class="input-group-text"> % </span>
-                        </div>
-                      </div>
-                      <div class="col-12 col-lg-6 mb-3">
-                        <label class="form-label required">Plazo</label>
-                        <div>
-                          <input
-                            type="number"
-                            class="form-control plazoPrestamo"
-                            placeholder="Plazo"
-                            autocomplete="off"
-                          />
-                        </div>
-                      </div>
+                    <div class="col-md-4">
+                      <div class="form-label">Perfil</div>
+                      <select class="form-select">
+                        <option value="" selected>Seleccionar</option>
+                        <option value="">Cliente</option>
+                        <option value="">Especial</option>
+                      </select>
                     </div>
                   </div>
-                  <div class="card-footer text-end">
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      id="btnCalcularCuota"
-                    >
-                      Calcular Cuotas
-                    </button>
+
+                  <h3 class="card-title mt-4"></h3>
+                  <div class="row g-3">
+                    <div class="col-md">
+                      <div class="form-label">Ocupacion</div>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md">
+                      <div class="form-label">Ingresos mensuales</div>
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+
+                  <h3 class="card-title mt-4"></h3>
+                  <div class="row g-3">
+                    <div class="col-md">
+                      <div class="form-label">Persona de Contacto</div>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md">
+                      <div class="form-label">Telefono Persona de Contacto</div>
+                      <input
+                        type="text"
+                        name="input-mask"
+                        class="form-control"
+                        data-mask="(+00) 000-000-0000"
+                        data-mask-visible="true"
+                        placeholder="(+00) 000-000-0000"
+                        autocomplete="off"
+                      />
+                    </div>
+                  </div>
+                  <div class="row g-3 mt-4">
+                    <div class="mb-3">
+                      <label class="form-label"
+                        >Direccion <br />
+                        <small
+                          >Procure ser lo mas espesifico posible y adjuntar
+                          referencias</small
+                        ></label
+                      >
+                      <textarea
+                        class="form-control"
+                        name="example-textarea-input"
+                        rows="6"
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <div class="col-auto">
+                    <div class="form-label">
+                      Subir Documentos <br />
+                      <small
+                        >Todos los documentos deben estar en un solo formato
+                        PDF</small
+                      >
+                    </div>
+                    <input type="file" class="form-control" />
+                  </div>
+
+                  <!-- <h3 class="card-title mt-4">Public profile</h3>
+                  <p class="card-subtitle">
+                    Making your profile public means that anyone on the Dashkit
+                    network will be able to find you.
+                  </p>
+                  <div>
+                    <label class="form-check form-switch form-switch-lg">
+                      <input class="form-check-input" type="checkbox" />
+                      <span class="form-check-label form-check-label-on"
+                        >You're currently visible</span
+                      >
+                      <span class="form-check-label form-check-label-off"
+                        >You're currently invisible</span
+                      >
+                    </label>
+                  </div> -->
+                </div>
+                <div class="card-footer bg-transparent mt-5">
+                  <div class="btn-list justify-content-end">
+                    <a href="./clientes.html" class="btn"> Cancelar </a>
+                    <a href="#" class="btn btn-primary"> Crear Cliente </a>
                   </div>
                 </div>
-              </div>
 
-              <div class="col-lg-7">
-                <div class="card">
-                  <div class="card-header border-0">
-                    <div class="card-title">Tabla de Amortizaciones</div>
-                  </div>
-                  <div class="card-table table-responsive">
-                    <table class="table table-transparent table-responsive">
-                      <thead>
-                        <tr>
-                          <th class="text-center" style="width: 1">#</th>
-                          <th class="text-center">Cuota</th>
-                          <th class="text-center">Capital</th>
-                          <th class="text-center">Interes</th>
-                          <th class="text-center">Saldo</th>
-                          <th class="text-center">Fecha</th>
-                        </tr>
-                      </thead>
-                      <tbody id="tablaCalculoCuotas">
-                        <!-- <tr>
-                          <td class="text-center">0</td>
-                          <td class="text-center">$0.00</td>
-                          <td class="text-center">$0.00</td>
-                          <td class="text-center">$0.00</td>
-                          <td class="text-center">$0.00</td>
-                          <td class="text-center">16/01/2024</td>
-                        </tr>
-
-                        <tr>
-                          <td class="text-center">1</td>
-                          <td class="text-center">$987.70</td>
-                          <td class="text-center">$627.70</td>
-                          <td class="text-center">$360.00</td>
-                          <td class="text-center">$2,372.30</td>
-                          <td class="text-center">16/01/2024</td>
-                        </tr>
-
-                        <tr>
-                          <td class="text-center">2</td>
-                          <td class="text-center">$987.70</td>
-                          <td class="text-center">$703.03</td>
-                          <td class="text-center">$284.68</td>
-                          <td class="text-center">$1,669.27</td>
-                          <td class="text-center">16/01/2024</td>
-                        </tr>
-
-                        <tr>
-                          <td class="text-center">3</td>
-                          <td class="text-center">$987.70</td>
-                          <td class="text-center">$787.39</td>
-                          <td class="text-center">$200.31</td>
-                          <td class="text-center">$881.88</td>
-                          <td class="text-center">16/01/2024</td>
-                        </tr>
-
-                        <tr>
-                          <td class="text-center">4</td>
-                          <td class="text-center">$987.70</td>
-                          <td class="text-center">$881.88</td>
-                          <td class="text-center">$105.83</td>
-                          <td class="text-center">$0.00</td>
-                          <td class="text-center">16/01/2024</td>
-                        </tr> -->
-
-                        <!-- <tr>
-                          <td colspan="5" class="strong text-end">
-                            Total Prestamo:
-                          </td>
-                          <td class="text-end">MX$ 3,000.00</td>
-                        </tr>
-                        <tr>
-                          <td colspan="5" class="strong text-end">
-                            Total Interes:
-                          </td>
-                          <td class="text-end">MX$ 950.80</td>
-                        </tr>
-                        <tr>
-                          <td
-                            colspan="5"
-                            class="font-weight-bold text-uppercase text-end"
-                          >
-                            Total a Pagar:
-                          </td>
-                          <td class="font-weight-bold text-end">
-                            MX$ 3,950.80
-                          </td>
-                        </tr> -->
-                      </tbody>
-                    </table>
-                  </div>
+                <div class="card-footer bg-transparent mt-5">
+                  <p>Lista de documentos:</p>
+                  <ul>
+                    <li>INE (por ambos lados)</li>
+                    <li>Comprobante de domicilio</li>
+                    <li>
+                      Documento que acredite ser servidor publico (solo en caso
+                      de requerirlo)
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -799,197 +772,25 @@
         </footer>
       </div>
     </div>
-    <div
-      class="modal modal-blur fade"
-      id="modal-report"
-      tabindex="-1"
-      role="dialog"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">New report</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label class="form-label">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                name="example-text-input"
-                placeholder="Your report name"
-              />
-            </div>
-            <label class="form-label">Report type</label>
-            <div class="form-selectgroup-boxes row mb-3">
-              <div class="col-lg-6">
-                <label class="form-selectgroup-item">
-                  <input
-                    type="radio"
-                    name="report-type"
-                    value="1"
-                    class="form-selectgroup-input"
-                    checked
-                  />
-                  <span
-                    class="form-selectgroup-label d-flex align-items-center p-3"
-                  >
-                    <span class="me-3">
-                      <span class="form-selectgroup-check"></span>
-                    </span>
-                    <span class="form-selectgroup-label-content">
-                      <span class="form-selectgroup-title strong mb-1"
-                        >Simple</span
-                      >
-                      <span class="d-block text-secondary"
-                        >Provide only basic data needed for the report</span
-                      >
-                    </span>
-                  </span>
-                </label>
-              </div>
-              <div class="col-lg-6">
-                <label class="form-selectgroup-item">
-                  <input
-                    type="radio"
-                    name="report-type"
-                    value="1"
-                    class="form-selectgroup-input"
-                  />
-                  <span
-                    class="form-selectgroup-label d-flex align-items-center p-3"
-                  >
-                    <span class="me-3">
-                      <span class="form-selectgroup-check"></span>
-                    </span>
-                    <span class="form-selectgroup-label-content">
-                      <span class="form-selectgroup-title strong mb-1"
-                        >Advanced</span
-                      >
-                      <span class="d-block text-secondary"
-                        >Insert charts and additional advanced analyses to be
-                        inserted in the report</span
-                      >
-                    </span>
-                  </span>
-                </label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-8">
-                <div class="mb-3">
-                  <label class="form-label">Report url</label>
-                  <div class="input-group input-group-flat">
-                    <span class="input-group-text">
-                      https://tabler.io/reports/
-                    </span>
-                    <input
-                      type="text"
-                      class="form-control ps-0"
-                      value="report-01"
-                      autocomplete="off"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label class="form-label">Visibility</label>
-                  <select class="form-select">
-                    <option value="1" selected>Private</option>
-                    <option value="2">Public</option>
-                    <option value="3">Hidden</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">Client name</label>
-                  <input type="text" class="form-control" />
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">Reporting period</label>
-                  <input type="date" class="form-control" />
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div>
-                  <label class="form-label">Additional information</label>
-                  <textarea class="form-control" rows="3"></textarea>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <a
-              href="#"
-              class="btn btn-link link-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-            </a>
-            <a href="#" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
-              <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 5l0 14" />
-                <path d="M5 12l14 0" />
-              </svg>
-              Create new report
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- Libs JS -->
     <script
-      src="./dist/libs/litepicker/dist/litepicker.js?1692870487"
+      src="./dist/libs/apexcharts/dist/apexcharts.min.js?1692870487"
+      defer
+    ></script>
+    <script
+      src="./dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487"
+      defer
+    ></script>
+    <script
+      src="./dist/libs/jsvectormap/dist/maps/world.js?1692870487"
+      defer
+    ></script>
+    <script
+      src="./dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487"
       defer
     ></script>
     <!-- Tabler Core -->
     <script src="./dist/js/tabler.min.js?1692870487" defer></script>
     <script src="./dist/js/demo.min.js?1692870487" defer></script>
-    <script>
-      $("#importePrestamoSimularPrestamo").number(true, 2);
-      // @formatter:off
-      document.addEventListener("DOMContentLoaded", function () {
-        window.Litepicker &&
-          new Litepicker({
-            element: document.getElementById("datepicker-icon"),
-            buttonText: {
-              previousMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>`,
-              nextMonth: `<!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>`,
-            },
-          });
-      });
-      // @formatter:on
-    </script>
-    <script src="js/simularPrestamo.js"></script>
   </body>
 </html>
