@@ -1,38 +1,102 @@
-<label for="dt_fecha_nacimiento">Fecha prestamo: </label>
-<input type="date" id="dt_fecha_nacimiento" /><br />
-<label for="cmb_dias">Periodo: </label>
-<input type="number" id="cmb_dias" /><br />
-<select id=""></select>
-<label for="cmb_dias">cuotas: </label>
-<input type="number" id="cmb_cuotas" /><br />
-<label for="dt_fecha_siguiente_etapa">Fecha siguiente etapa: </label>
-<input type="text" id="dt_fecha_siguiente_etapa" /><br />
-<button id="calcular">Calcular</button>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./dist/js/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  </head>
+  <body>
+    <label for="importePrestamo">Importe prestamo</label>
+    <input type="text" id="importe" />
+    <br />
+    <label for="interes">interes</label>
+    <input type="number" id="interes" />
+    <br /><label for="plazo">Plazo</label>
+    <input type="number" id="plazo" />
+    <button type="button" id="calcularPrestamo">Calcular</button>
+    <hr />
+    <table border="1px">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Cuota</th>
+          <th>Capital</th>
+          <th>Interes</th>
+          <th>Saldo</th>
+        </tr>
+      </thead>
+      <tbody id="tablaAmortizacion"></tbody>
+    </table>
+  </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script>
+    $("#calcularPrestamo").on("click", function () {
+      var datostabla = [];
+      var fecha = "2024-08-30";
+      var monto = $("#importe").val();
+      monto = Number(monto);
+      var interes = $("#interes").val();
+      interes = interes / 100;
+      var plazo = $("#plazo").val();
+      var periodo = 15;
 
-<script>
-  //Al hacer click en el botón... (Debes cambiar esta acción en tu proyecto)
-  $("#calcular").on("click", function () {
-    //Obtener la fecha de nacimiento
-    let fecha = $("#dt_fecha_nacimiento").val();
-    console.log(fecha);
-    //Obtener la cantidad de días
-    let dias = $("#cmb_dias").val();
-    // opbtener periodo
-    let plazo = $("#cmb_cuotas").val();
-    //Calcular la sumatoria
-    let fecha2;
-    //creamos el array
-    var fechas = [];
+      console.log(monto);
+      console.log(interes);
+      console.log(plazo);
 
-    for (var i = 1; i <= plazo; i++) {
-      fecha2 = moment(fecha).add(dias, "days").format("YYYY-MM-DD");
-      fechas.push(fecha2);
-      fecha = fecha2;
-    }
-    //Asignar la nueva fecha al input siguiente etapa
-    console.log(fechas);
-  });
-</script>
+      var montointeres = monto * interes;
+      console.log(montointeres);
+
+      var montoConInteres = monto + montointeres;
+
+      var cuota = montoConInteres / plazo;
+      console.log(cuota);
+      console.log("----------------------------------");
+
+      var saldoinicial = montoConInteres;
+
+      /* -------------------------------------------------------------------------- */
+      /*                             GENERAMOS EL ARRAY                             */
+      /* -------------------------------------------------------------------------- */
+
+      datostabla.push({
+        nCutoa: "0",
+        montoCuota: "0",
+        capital: "0",
+        interes: "0",
+        saldo: saldoinicial,
+        fechaPago: fecha,
+      });
+
+      for (let i = 0; i < plazo; i++) {
+        /* -------------------------- se calcula el interes ------------------------- */
+
+        var interes_tabla = 0;
+
+        /* ---- el abono a capital es la amortizacion menos el interes del ciclo ---- */
+
+        var abono_capital = (cuota - 0).toFixed(2);
+
+        var saldo_final = (saldoinicial - abono_capital).toFixed(2);
+
+        fecha2 = moment(fecha).add(periodo, "days").format("YYYY-MM-DD");
+
+        datostabla.push({
+          nCutoa: i + 1,
+          montoCuota: cuota,
+          capital: abono_capital,
+          interes: interes_tabla,
+          saldo: saldo_final,
+          fechaPago: fecha2,
+        });
+
+        saldoinicial = saldo_final;
+        fecha = fecha2;
+      }
+
+      console.log(datostabla);
+    });
+  </script>
+</html>

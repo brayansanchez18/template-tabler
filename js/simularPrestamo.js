@@ -7,7 +7,7 @@ $("#btnCalcularCuota").on("click", function () {
   /* -------------------------------------------------------------------------- */
   /*                            CAPTURAMOS LOS DATOS                            */
   /* -------------------------------------------------------------------------- */
-
+  var perfil = $("#perfilClientePrestamo").val();
   var fecha = $(".fechaDesembolso").val();
   var monto = $(".montoPrestamo").val();
   var periodo = $(".periodoPrestamo").val();
@@ -24,62 +24,111 @@ $("#btnCalcularCuota").on("click", function () {
 
   /* -------------------------- CALCULAMOS EL PERIODO ------------------------- */
 
-  if (fecha && monto && periodo && interes && plazo) {
-    /* -------------------------------------------------------------------------- */
-    /*                              CALCULAR LA CUOTA                             */
-    /* -------------------------------------------------------------------------- */
+  if (fecha && monto && periodo && interes && plazo && perfil) {
+    if (perfil == "cliente") {
+      /* -------------------------------------------------------------------------- */
+      /*                              CALCULAR LA CUOTA                             */
+      /* -------------------------------------------------------------------------- */
 
-    var cuota = (
-      monto *
-      (interes / (1 - Math.pow(1 + interes, plazo * -1)))
-    ).toFixed(2);
+      var cuota = (
+        monto *
+        (interes / (1 - Math.pow(1 + interes, plazo * -1)))
+      ).toFixed(2);
 
-    /* ---------------------------- CALCULAR LA CUOTA --------------------------- */
+      /* ---------------------------- CALCULAR LA CUOTA --------------------------- */
 
-    var saldoinicial = monto;
+      var saldoinicial = monto;
 
-    /* -------------------------------------------------------------------------- */
-    /*                             GENERAMOS EL ARRAY                             */
-    /* -------------------------------------------------------------------------- */
-
-    datostabla.push({
-      nCutoa: "0",
-      montoCuota: "0",
-      capital: "0",
-      interes: "0",
-      saldo: saldoinicial,
-      estado: "1",
-      fechaPago: fecha,
-    });
-
-    for (let i = 0; i < plazo; i++) {
-      /* -------------------------- se calcula el interes ------------------------- */
-
-      var interes_tabla = (saldoinicial * interes).toFixed(2);
-
-      /* ---- el abono a capital es la amortizacion menos el interes del ciclo ---- */
-
-      var abono_capital = (cuota - interes_tabla).toFixed(2);
-
-      var saldo_final = (saldoinicial - abono_capital).toFixed(2);
-
-      fecha2 = moment(fecha).add(periodo, "days").format("YYYY-MM-DD");
+      /* -------------------------------------------------------------------------- */
+      /*                             GENERAMOS EL ARRAY                             */
+      /* -------------------------------------------------------------------------- */
 
       datostabla.push({
-        nCutoa: i + 1,
-        montoCuota: cuota,
-        capital: abono_capital,
-        interes: interes_tabla,
-        saldo: saldo_final,
-        estado: "0",
-        fechaPago: fecha2,
+        nCutoa: "0",
+        montoCuota: "0",
+        capital: "0",
+        interes: "0",
+        saldo: saldoinicial,
+        fechaPago: fecha,
       });
 
-      saldoinicial = saldo_final;
-      fecha = fecha2;
-    }
+      for (let i = 0; i < plazo; i++) {
+        /* -------------------------- se calcula el interes ------------------------- */
 
-    /* --------------------------- GENERAMOS EL ARRAY --------------------------- */
+        var interes_tabla = (saldoinicial * interes).toFixed(2);
+
+        /* ---- el abono a capital es la amortizacion menos el interes del ciclo ---- */
+
+        var abono_capital = (cuota - interes_tabla).toFixed(2);
+
+        var saldo_final = (saldoinicial - abono_capital).toFixed(2);
+
+        fecha2 = moment(fecha).add(periodo, "days").format("YYYY-MM-DD");
+
+        datostabla.push({
+          nCutoa: i + 1,
+          montoCuota: cuota,
+          capital: abono_capital,
+          interes: interes_tabla,
+          saldo: saldo_final,
+          fechaPago: fecha2,
+        });
+
+        saldoinicial = saldo_final;
+        fecha = fecha2;
+      }
+
+      /* --------------------------- GENERAMOS EL ARRAY --------------------------- */
+    } else {
+      /* -------------------------------------------------------------------------- */
+      /*                              CALCULAR LA CUOTA                             */
+      /* -------------------------------------------------------------------------- */
+
+      var montointeres = monto * interes;
+      var montoConInteres = Number(monto) + montointeres;
+      var cuota = montoConInteres / plazo;
+
+      var saldoinicial = montoConInteres;
+
+      /* -------------------------------------------------------------------------- */
+      /*                             GENERAMOS EL ARRAY                             */
+      /* -------------------------------------------------------------------------- */
+
+      datostabla.push({
+        nCutoa: "0",
+        montoCuota: "0",
+        capital: "0",
+        interes: "0",
+        saldo: saldoinicial,
+        fechaPago: fecha,
+      });
+
+      for (let i = 0; i < plazo; i++) {
+        /* -------------------------- se calcula el interes ------------------------- */
+
+        var interes_tabla = 0;
+
+        /* ---- el abono a capital es la amortizacion menos el interes del ciclo ---- */
+
+        var abono_capital = (cuota - 0).toFixed(2);
+
+        var saldo_final = (saldoinicial - abono_capital).toFixed(2);
+
+        fecha2 = moment(fecha).add(periodo, "days").format("YYYY-MM-DD");
+
+        datostabla.push({
+          nCutoa: i + 1,
+          montoCuota: cuota,
+          capital: abono_capital,
+          interes: interes_tabla,
+          saldo: saldo_final,
+          fechaPago: fecha2,
+        });
+
+        saldoinicial = saldo_final;
+        fecha = fecha2;
+      }
+    }
 
     /* -------------------------------------------------------------------------- */
     /*                             IMPRIMIMOS LA TABLA                            */
