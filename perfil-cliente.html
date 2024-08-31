@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta20
+* @link https://tabler.io
+* Copyright 2018-2023 The Tabler Authors
+* Copyright 2018-2023 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MONE-Y</title>
+    <!-- CSS files -->
+    <link href="./dist/css/tabler.min.css?1692870487" rel="stylesheet" />
+    <link href="./dist/css/tabler-flags.min.css?1692870487" rel="stylesheet" />
+    <link
+      href="./dist/css/tabler-payments.min.css?1692870487"
+      rel="stylesheet"
+    />
+    <link
+      href="./dist/css/tabler-vendors.min.css?1692870487"
+      rel="stylesheet"
+    />
+    <link href="./dist/css/demo.min.css?1692870487" rel="stylesheet" />
+    <style>
+      @import url("https://rsms.me/inter/inter.css");
+      :root {
+        --tblr-font-sans-serif: "Inter Var", -apple-system, BlinkMacSystemFont,
+          San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+        font-feature-settings: "cv03", "cv04", "cv11";
+      }
+    </style>
+  </head>
+  <body>
+    <script src="./dist/js/demo-theme.min.js?1692870487"></script>
+    <div class="page">
+      <!-- Navbar -->
+      <header class="navbar navbar-expand-md d-print-none">
+        <div class="container-xl">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar-menu"
+            aria-controls="navbar-menu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <h1
+            class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3"
+          >
+            <a href=".">
+              <img
+                src="./static/logo.svg"
+                width="110"
+                height="32"
+                alt="Tabler"
+                class="navbar-brand-image"
+              />
+            </a>
+          </h1>
+          <div class="navbar-nav flex-row order-md-last">
+            <div class="nav-item d-none d-md-flex me-3">
+              <div class="btn-list"></div>
+            </div>
+            <div class="d-none d-md-flex">
+              <a
+                href="?theme=dark"
+                class="nav-link px-0 hide-theme-dark"
+                title="Enable dark mode"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+              >
+                <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="?theme=light"
+                class="nav-link px-0 hide-theme-light"
+                title="Enable light mode"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+              >
+                <!-- Download SVG icon from http://tabler-icons.io/i/sun -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                  <path
+                    d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
+                  />
+                </svg>
+              </a>
+              <div class="nav-item dropdown d-none d-md-flex me-3">
+                <a
+                  href="#"
+                  class="nav-link px-0"
+                  data-bs-toggle="dropdown"
+                  tabindex="-1"
+                  aria-label="Show notifications"
+                >
+                  <!-- Download SVG icon from http://tabler-icons.io/i/bell -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"
+                    />
+                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                  </svg>
+                  <span class="badge bg-red"></span>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card"
+                >
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class="card-title">Last updates</h3>
+                    </div>
+                    <div
+                      class="list-group list-group-flush list-group-hoverable"
+                    >
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span
+                              class="status-dot status-dot-animated bg-red d-block"
+                            ></span>
+                          </div>
+                          <div class="col text-truncate">
+                            <a href="#" class="text-body d-block">Example 1</a>
+                            <div
+                              class="d-block text-secondary text-truncate mt-n1"
+                            >
+                              Change deprecated html tags to text decoration
+                              classes (#29604)
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="list-group-item-actions">
+                              <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="icon text-muted"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"
+                                />
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span class="status-dot d-block"></span>
+                          </div>
+                          <div class="col text-truncate">
+                            <a href="#" class="text-body d-block">Example 2</a>
+                            <div
+                              class="d-block text-secondary text-truncate mt-n1"
+                            >
+                              justify-content:between ⇒
+                              justify-content:space-between (#29734)
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="list-group-item-actions show">
+                              <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="icon text-yellow"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"
+                                />
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span class="status-dot d-block"></span>
+                          </div>
+                          <div class="col text-truncate">
+                            <a href="#" class="text-body d-block">Example 3</a>
+                            <div
+                              class="d-block text-secondary text-truncate mt-n1"
+                            >
+                              Update change-version.js (#29736)
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="list-group-item-actions">
+                              <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="icon text-muted"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"
+                                />
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span
+                              class="status-dot status-dot-animated bg-green d-block"
+                            ></span>
+                          </div>
+                          <div class="col text-truncate">
+                            <a href="#" class="text-body d-block">Example 4</a>
+                            <div
+                              class="d-block text-secondary text-truncate mt-n1"
+                            >
+                              Regenerate package-lock.json (#29730)
+                            </div>
+                          </div>
+                          <div class="col-auto">
+                            <a href="#" class="list-group-item-actions">
+                              <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="icon text-muted"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"
+                                />
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link d-flex lh-1 text-reset p-0"
+                data-bs-toggle="dropdown"
+                aria-label="Open user menu"
+              >
+                <span
+                  class="avatar avatar-sm"
+                  style="background-image: url(./static/avatars/000m.jpg)"
+                ></span>
+                <div class="d-none d-xl-block ps-2">
+                  <div>Paweł Kuna</div>
+                  <div class="mt-1 small text-secondary">UI Designer</div>
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <a href="#" class="dropdown-item">Status</a>
+                <a href="./profile.html" class="dropdown-item">Profile</a>
+                <a href="#" class="dropdown-item">Feedback</a>
+                <div class="dropdown-divider"></div>
+                <a href="./settings.html" class="dropdown-item">Settings</a>
+                <a href="./sign-in.html" class="dropdown-item">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <header class="navbar-expand-md">
+        <div class="collapse navbar-collapse" id="navbar-menu">
+          <div class="navbar">
+            <div class="container-xl">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block"
+                      ><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                        <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                      </svg>
+                    </span>
+                    <span class="nav-link-title"> Inicio </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="usuarios.html">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-user-cog"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h2.5" />
+                        <path
+                          d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"
+                        />
+                        <path d="M19.001 15.5v1.5" />
+                        <path d="M19.001 21v1.5" />
+                        <path d="M22.032 17.25l-1.299 .75" />
+                        <path d="M17.27 20l-1.3 .75" />
+                        <path d="M15.97 17.25l1.3 .75" />
+                        <path d="M20.733 20l1.3 .75" />
+                      </svg>
+                    </span>
+                    <span class="nav-link-title"> Usuarios </span>
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="clientes.html">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-user-dollar"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h3" />
+                        <path
+                          d="M21 15h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"
+                        />
+                        <path d="M19 21v1m0 -8v1" />
+                      </svg>
+                    </span>
+                    <span class="nav-link-title"> Clientes </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="caja.html">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-pig-money"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M15 11v.01" />
+                        <path d="M5.173 8.378a3 3 0 1 1 4.656 -1.377" />
+                        <path
+                          d="M16 4v3.803a6.019 6.019 0 0 1 2.658 3.197h1.341a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-1.342c-.336 .95 -.907 1.8 -1.658 2.473v2.027a1.5 1.5 0 0 1 -3 0v-.583a6.04 6.04 0 0 1 -1 .083h-4a6.04 6.04 0 0 1 -1 -.083v.583a1.5 1.5 0 0 1 -3 0v-2l0 -.027a6 6 0 0 1 4 -10.473h2.5l4.5 -3h0z"
+                        />
+                      </svg>
+                    </span>
+                    <span class="nav-link-title"> Caja </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="simular-prestamo.html">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="icon icon-tabler icons-tabler-outline icon-tabler-eye"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                      <path
+                        d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"
+                      />
+                    </svg>
+                    <span class="nav-link-title"> Simular Prestamo </span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="reportes.html">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-chart-histogram"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M3 3v18h18" />
+                        <path d="M20 18v3" />
+                        <path d="M16 16v5" />
+                        <path d="M12 13v8" />
+                        <path d="M8 16v5" />
+                        <path d="M3 11c6 0 5 -5 9 -5s3 5 9 5" />
+                      </svg>
+                    </span>
+                    <span class="nav-link-title"> Reportes </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+          <div class="container-xl">
+            <div class="row g-2 align-items-center">
+              <div class="col">
+                <h2 class="page-title">Perfil Cliente</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="card">
+              <div class="row g-0">
+                <div class="col-12 col-md-3 border-end">
+                  <div class="card-body">
+                    <h4 class="subheader">Opciones</h4>
+                    <div class="list-group list-group-transparent">
+                      <a
+                        href="#tab-info-cliente"
+                        data-bs-toggle="tab"
+                        class="list-group-item list-group-item-action d-flex align-items-center active"
+                        >Informacion</a
+                      >
+                      <a
+                        href="#historial-cliente"
+                        data-bs-toggle="tab"
+                        class="list-group-item list-group-item-action d-flex align-items-center"
+                        >Historial</a
+                      >
+                      <a
+                        href="#asignar-prestamo"
+                        data-bs-toggle="tab"
+                        class="list-group-item list-group-item-action d-flex align-items-center"
+                        >Asignar Prestamo</a
+                      >
+                      <a
+                        href="./simular-prestamo.html"
+                        class="list-group-item list-group-item-action d-flex align-items-center"
+                        >Simular Prestamo</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-9 d-flex flex-column">
+                  <div class="tab-content">
+                    <div class="tab-pane active show" id="tab-info-cliente">
+                      <div class="card-body">
+                        <h2 class="mb-4">Datos del Cliente</h2>
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <span
+                              class="avatar avatar-xl"
+                              style="
+                                background-image: url(./static/avatars/000m.jpg);
+                              "
+                            ></span>
+                          </div>
+                          <div class="col-auto"></div>
+                        </div>
+                        <h3 class="card-title mt-4"></h3>
+                        <div class="row g-3">
+                          <div class="col-md">
+                            <div class="form-label">Nombre(s)</div>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="Brayan Emanuel"
+                              disabled
+                              readonly
+                            />
+                          </div>
+                          <div class="col-md">
+                            <div class="form-label">Apellidos</div>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="Sánchez Ramírez"
+                              disabled
+                              readonly
+                            />
+                          </div>
+                          <div class="col-md">
+                            <div class="form-label">Numero de INE</div>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="225846837415"
+                              disabled
+                              readonly
+                            />
+                          </div>
+                        </div>
+
+                        <h3 class="card-title mt-4"></h3>
+                        <div class="row g-3">
+                          <div class="col-md">
+                            <div class="form-label">CURP</div>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="XEXX010101HNEXXXA4"
+                              disabled
+                              readonly
+                            />
+                          </div>
+                          <div class="col-md">
+                            <div class="form-label">Fecha de Nacimiento</div>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="2001-10-12"
+                              disabled
+                              readonly
+                            />
+                          </div>
+                          <div class="col-md">
+                            <div class="form-label">Numero Telefonico</div>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="(+52) 729-592-4900"
+                              disabled
+                              readonly
+                            />
+                          </div>
+                        </div>
+
+                        <h3 class="card-title mt-4"></h3>
+                        <div class="row g-3">
+                          <div class="col-md">
+                            <div class="form-label">Sexo</div>
+                            <select class="form-select" disabled readonly>
+                              <option value="Masculino">Masculino</option>
+                            </select>
+                          </div>
+
+                          <div class="col-md">
+                            <div class="form-label">Correo Electronico</div>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="jhon@correo.com"
+                              disabled
+                              readonly
+                            />
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="form-label">Perfil</div>
+                            <select class="form-select" disabled readonly>
+                              <option value="">Cliente</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <h3 class="card-title mt-4"></h3>
+                        <div class="row g-3">
+                          <div class="col-md">
+                            <div class="form-label">Ocupacion</div>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="Servidor Publico"
+                              disabled
+                              readonly
+                            />
+                          </div>
+                          <div class="col-md">
+                            <div class="form-label">Ingresos mensuales</div>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="$12,000.00"
+                              disabled
+                              readonly
+                            />
+                          </div>
+                        </div>
+
+                        <h3 class="card-title mt-4"></h3>
+                        <div class="row g-3">
+                          <div class="col-md">
+                            <div class="form-label">Persona de Contacto</div>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="Jazmin Montserrath Santiago Jilote"
+                              disabled
+                              readonly
+                            />
+                          </div>
+                          <div class="col-md">
+                            <div class="form-label">
+                              Telefono Persona de Contacto
+                            </div>
+                            <input
+                              type="text"
+                              class="form-control"
+                              value="(+52) 722-253-7253"
+                              disabled
+                              readonly
+                            />
+                          </div>
+                        </div>
+                        <div class="row g-3 mt-4">
+                          <div class="mb-3">
+                            <label class="form-label">Direccion</label>
+                            <textarea
+                              class="form-control"
+                              name="example-textarea-input"
+                              rows="6"
+                              disabled
+                              readonly
+                            >
+  Calle: Poblado Diana Cano 3 Puerta 193*
+  Localidad: Chihuahua, Balleza, Baquiriachi
+  País: Mexico, MX (MEX)</textarea
+                            >
+                          </div>
+                        </div>
+
+                        <div class="col-auto">
+                          <div class="form-label">Documentos</div>
+                          <hr />
+                          <embed
+                            src="./docs/documentos-54879.pdf"
+                            width="100%"
+                            height="450px"
+                            type="application/pdf"
+                          />
+                        </div>
+
+                        <!-- <h3 class="card-title mt-4">Public profile</h3>
+                    <p class="card-subtitle">
+                      Making your profile public means that anyone on the Dashkit
+                      network will be able to find you.
+                    </p>
+                    <div>
+                      <label class="form-check form-switch form-switch-lg">
+                        <input class="form-check-input" type="checkbox" />
+                        <span class="form-check-label form-check-label-on"
+                          >You're currently visible</span
+                        >
+                        <span class="form-check-label form-check-label-off"
+                          >You're currently invisible</span
+                        >
+                      </label>
+                    </div> -->
+                      </div>
+                      <div class="card-footer bg-transparent mt-auto">
+                        <div class="btn-list justify-content-end">
+                          <button class="btn btn-danger">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="icon icon-tabler icons-tabler-outline icon-tabler-contract"
+                            >
+                              <path
+                                stroke="none"
+                                d="M0 0h24v24H0z"
+                                fill="none"
+                              />
+                              <path d="M8 21h-2a3 3 0 0 1 -3 -3v-1h5.5" />
+                              <path d="M17 8.5v-3.5a2 2 0 1 1 2 2h-2" />
+                              <path d="M19 3h-11a3 3 0 0 0 -3 3v11" />
+                              <path d="M9 7h4" />
+                              <path d="M9 11h4" />
+                              <path
+                                d="M18.42 12.61a2.1 2.1 0 0 1 2.97 2.97l-6.39 6.42h-3v-3z"
+                              />
+                            </svg>
+                            Imprimir Contrato
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="historial-cliente">
+                      <div class="card-body">
+                        <h2 class="mb-4">
+                          Historial Prestamos - Brayan Emanuel Sanchez Ramirez
+                        </h2>
+
+                        <div class="accordion" id="accordion-example">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-1">
+                              <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapse-1"
+                                aria-expanded="true"
+                              >
+                                #3581
+                              </button>
+                            </h2>
+                            <div
+                              id="collapse-1"
+                              class="accordion-collapse collapse show"
+                              data-bs-parent="#accordion-example"
+                            >
+                              <div class="accordion-body pt-0">
+                                <table
+                                  class="table table-vcenter card-table dt-responsive"
+                                >
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>CUOTA</th>
+                                      <th>MULTA</th>
+                                      <th>ABONO</th>
+                                      <th>SALDO</th>
+                                      <th>ESTADO</th>
+                                      <th>METODO DE PAGO</th>
+                                      <th>REFERENCIA</th>
+                                      <th>FECHA</th>
+                                      <th>ACCIONES</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>0</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>$1500.00</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-green text-green-fg"
+                                        >
+                                          Cobrado
+                                        </span>
+                                      </td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>31-08-2024</td>
+                                      <td>-</td>
+                                    </tr>
+                                    <tr>
+                                      <td>1</td>
+                                      <td>$473.21</td>
+                                      <td>$0.00</td>
+                                      <td>$473.21</td>
+                                      <td>$1176.79</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-green text-green-fg"
+                                        >
+                                          Cobrado
+                                        </span>
+                                      </td>
+                                      <td>Efectivo</td>
+                                      <td>0000</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-info">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-printer"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2"
+                                            />
+                                            <path
+                                              d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4"
+                                            />
+                                            <path
+                                              d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z"
+                                            />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>2</td>
+                                      <td>$473.21</td>
+                                      <td>$0.00</td>
+                                      <td>$473.21</td>
+                                      <td>$821.26</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-green text-green-fg"
+                                        >
+                                          Cobrado
+                                        </span>
+                                      </td>
+                                      <td>Tranferencia</td>
+                                      <td>1254</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-info">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-printer"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2"
+                                            />
+                                            <path
+                                              d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4"
+                                            />
+                                            <path
+                                              d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z"
+                                            />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>3</td>
+                                      <td>$473.21</td>
+                                      <td>$23.76</td>
+                                      <td>$0.00</td>
+                                      <td>$430.18</td>
+                                      <td>
+                                        <span class="badge bg-red text-red-fg">
+                                          Vencido
+                                        </span>
+                                      </td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-secondary">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-cash-register"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M21 15h-2.5c-.398 0 -.779 .158 -1.061 .439c-.281 .281 -.439 .663 -.439 1.061c0 .398 .158 .779 .439 1.061c.281 .281 .663 .439 1.061 .439h1c.398 0 .779 .158 1.061 .439c.281 .281 .439 .663 .439 1.061c0 .398 -.158 .779 -.439 1.061c-.281 .281 -.663 .439 -1.061 .439h-2.5"
+                                            />
+                                            <path d="M19 21v1m0 -8v1" />
+                                            <path
+                                              d="M13 21h-7c-.53 0 -1.039 -.211 -1.414 -.586c-.375 -.375 -.586 -.884 -.586 -1.414v-10c0 -.53 .211 -1.039 .586 -1.414c.375 -.375 .884 -.586 1.414 -.586h2m12 3.12v-1.12c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-2"
+                                            />
+                                            <path
+                                              d="M16 10v-6c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-4c-.53 0 -1.039 .211 -1.414 .586c-.375 .375 -.586 .884 -.586 1.414v6m8 0h-8m8 0h1m-9 0h-1"
+                                            />
+                                            <path d="M8 14v.01" />
+                                            <path d="M8 17v.01" />
+                                            <path d="M12 13.99v.01" />
+                                            <path d="M12 17v.01" />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>4</td>
+                                      <td>$473.21</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-orange text-orange-fg"
+                                        >
+                                          Pendiente
+                                        </span>
+                                      </td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-secondary">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-cash-register"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M21 15h-2.5c-.398 0 -.779 .158 -1.061 .439c-.281 .281 -.439 .663 -.439 1.061c0 .398 .158 .779 .439 1.061c.281 .281 .663 .439 1.061 .439h1c.398 0 .779 .158 1.061 .439c.281 .281 .439 .663 .439 1.061c0 .398 -.158 .779 -.439 1.061c-.281 .281 -.663 .439 -1.061 .439h-2.5"
+                                            />
+                                            <path d="M19 21v1m0 -8v1" />
+                                            <path
+                                              d="M13 21h-7c-.53 0 -1.039 -.211 -1.414 -.586c-.375 -.375 -.586 -.884 -.586 -1.414v-10c0 -.53 .211 -1.039 .586 -1.414c.375 -.375 .884 -.586 1.414 -.586h2m12 3.12v-1.12c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-2"
+                                            />
+                                            <path
+                                              d="M16 10v-6c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-4c-.53 0 -1.039 .211 -1.414 .586c-.375 .375 -.586 .884 -.586 1.414v6m8 0h-8m8 0h1m-9 0h-1"
+                                            />
+                                            <path d="M8 14v.01" />
+                                            <path d="M8 17v.01" />
+                                            <path d="M12 13.99v.01" />
+                                            <path d="M12 17v.01" />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="4">Deuda Restante:</td>
+                                      <td colspan="6">$970.28 MXN</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-2">
+                              <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapse-2"
+                                aria-expanded="false"
+                              >
+                                #8548
+                              </button>
+                            </h2>
+                            <div
+                              id="collapse-2"
+                              class="accordion-collapse collapse"
+                              data-bs-parent="#accordion-example"
+                            >
+                              <div class="accordion-body pt-0">
+                                <table
+                                  class="table table-vcenter card-table dt-responsive"
+                                >
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>CUOTA</th>
+                                      <th>MULTA</th>
+                                      <th>ABONO</th>
+                                      <th>SALDO</th>
+                                      <th>ESTADO</th>
+                                      <th>METODO DE PAGO</th>
+                                      <th>REFERENCIA</th>
+                                      <th>FECHA</th>
+                                      <th>ACCIONES</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>0</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>$1500.00</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-green text-green-fg"
+                                        >
+                                          Cobrado
+                                        </span>
+                                      </td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>31-08-2024</td>
+                                      <td>-</td>
+                                    </tr>
+                                    <tr>
+                                      <td>1</td>
+                                      <td>$473.21</td>
+                                      <td>$0.00</td>
+                                      <td>$473.21</td>
+                                      <td>$1176.79</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-green text-green-fg"
+                                        >
+                                          Cobrado
+                                        </span>
+                                      </td>
+                                      <td>Efectivo</td>
+                                      <td>0000</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-info">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-printer"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2"
+                                            />
+                                            <path
+                                              d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4"
+                                            />
+                                            <path
+                                              d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z"
+                                            />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>2</td>
+                                      <td>$473.21</td>
+                                      <td>$0.00</td>
+                                      <td>$473.21</td>
+                                      <td>$821.26</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-green text-green-fg"
+                                        >
+                                          Cobrado
+                                        </span>
+                                      </td>
+                                      <td>Tranferencia</td>
+                                      <td>1254</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-info">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-printer"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2"
+                                            />
+                                            <path
+                                              d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4"
+                                            />
+                                            <path
+                                              d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z"
+                                            />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>3</td>
+                                      <td>$473.21</td>
+                                      <td>$23.76</td>
+                                      <td>$0.00</td>
+                                      <td>$430.18</td>
+                                      <td>
+                                        <span class="badge bg-red text-red-fg">
+                                          Vencido
+                                        </span>
+                                      </td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-secondary">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-cash-register"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M21 15h-2.5c-.398 0 -.779 .158 -1.061 .439c-.281 .281 -.439 .663 -.439 1.061c0 .398 .158 .779 .439 1.061c.281 .281 .663 .439 1.061 .439h1c.398 0 .779 .158 1.061 .439c.281 .281 .439 .663 .439 1.061c0 .398 -.158 .779 -.439 1.061c-.281 .281 -.663 .439 -1.061 .439h-2.5"
+                                            />
+                                            <path d="M19 21v1m0 -8v1" />
+                                            <path
+                                              d="M13 21h-7c-.53 0 -1.039 -.211 -1.414 -.586c-.375 -.375 -.586 -.884 -.586 -1.414v-10c0 -.53 .211 -1.039 .586 -1.414c.375 -.375 .884 -.586 1.414 -.586h2m12 3.12v-1.12c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-2"
+                                            />
+                                            <path
+                                              d="M16 10v-6c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-4c-.53 0 -1.039 .211 -1.414 .586c-.375 .375 -.586 .884 -.586 1.414v6m8 0h-8m8 0h1m-9 0h-1"
+                                            />
+                                            <path d="M8 14v.01" />
+                                            <path d="M8 17v.01" />
+                                            <path d="M12 13.99v.01" />
+                                            <path d="M12 17v.01" />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>4</td>
+                                      <td>$473.21</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-orange text-orange-fg"
+                                        >
+                                          Pendiente
+                                        </span>
+                                      </td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-secondary">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-cash-register"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M21 15h-2.5c-.398 0 -.779 .158 -1.061 .439c-.281 .281 -.439 .663 -.439 1.061c0 .398 .158 .779 .439 1.061c.281 .281 .663 .439 1.061 .439h1c.398 0 .779 .158 1.061 .439c.281 .281 .439 .663 .439 1.061c0 .398 -.158 .779 -.439 1.061c-.281 .281 -.663 .439 -1.061 .439h-2.5"
+                                            />
+                                            <path d="M19 21v1m0 -8v1" />
+                                            <path
+                                              d="M13 21h-7c-.53 0 -1.039 -.211 -1.414 -.586c-.375 -.375 -.586 -.884 -.586 -1.414v-10c0 -.53 .211 -1.039 .586 -1.414c.375 -.375 .884 -.586 1.414 -.586h2m12 3.12v-1.12c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-2"
+                                            />
+                                            <path
+                                              d="M16 10v-6c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-4c-.53 0 -1.039 .211 -1.414 .586c-.375 .375 -.586 .884 -.586 1.414v6m8 0h-8m8 0h1m-9 0h-1"
+                                            />
+                                            <path d="M8 14v.01" />
+                                            <path d="M8 17v.01" />
+                                            <path d="M12 13.99v.01" />
+                                            <path d="M12 17v.01" />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="4">Deuda Restante:</td>
+                                      <td colspan="6">$970.28 MXN</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-3">
+                              <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapse-3"
+                                aria-expanded="false"
+                              >
+                                #7835
+                              </button>
+                            </h2>
+                            <div
+                              id="collapse-3"
+                              class="accordion-collapse collapse"
+                              data-bs-parent="#accordion-example"
+                            >
+                              <div class="accordion-body pt-0">
+                                <table
+                                  class="table table-vcenter card-table dt-responsive"
+                                >
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>CUOTA</th>
+                                      <th>MULTA</th>
+                                      <th>ABONO</th>
+                                      <th>SALDO</th>
+                                      <th>ESTADO</th>
+                                      <th>METODO DE PAGO</th>
+                                      <th>REFERENCIA</th>
+                                      <th>FECHA</th>
+                                      <th>ACCIONES</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>0</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>$1500.00</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-green text-green-fg"
+                                        >
+                                          Cobrado
+                                        </span>
+                                      </td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>31-08-2024</td>
+                                      <td>-</td>
+                                    </tr>
+                                    <tr>
+                                      <td>1</td>
+                                      <td>$473.21</td>
+                                      <td>$0.00</td>
+                                      <td>$473.21</td>
+                                      <td>$1176.79</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-green text-green-fg"
+                                        >
+                                          Cobrado
+                                        </span>
+                                      </td>
+                                      <td>Efectivo</td>
+                                      <td>0000</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-info">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-printer"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2"
+                                            />
+                                            <path
+                                              d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4"
+                                            />
+                                            <path
+                                              d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z"
+                                            />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>2</td>
+                                      <td>$473.21</td>
+                                      <td>$0.00</td>
+                                      <td>$473.21</td>
+                                      <td>$821.26</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-green text-green-fg"
+                                        >
+                                          Cobrado
+                                        </span>
+                                      </td>
+                                      <td>Tranferencia</td>
+                                      <td>1254</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-info">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-printer"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2"
+                                            />
+                                            <path
+                                              d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4"
+                                            />
+                                            <path
+                                              d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z"
+                                            />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>3</td>
+                                      <td>$473.21</td>
+                                      <td>$23.76</td>
+                                      <td>$0.00</td>
+                                      <td>$430.18</td>
+                                      <td>
+                                        <span class="badge bg-red text-red-fg">
+                                          Vencido
+                                        </span>
+                                      </td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-secondary">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-cash-register"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M21 15h-2.5c-.398 0 -.779 .158 -1.061 .439c-.281 .281 -.439 .663 -.439 1.061c0 .398 .158 .779 .439 1.061c.281 .281 .663 .439 1.061 .439h1c.398 0 .779 .158 1.061 .439c.281 .281 .439 .663 .439 1.061c0 .398 -.158 .779 -.439 1.061c-.281 .281 -.663 .439 -1.061 .439h-2.5"
+                                            />
+                                            <path d="M19 21v1m0 -8v1" />
+                                            <path
+                                              d="M13 21h-7c-.53 0 -1.039 -.211 -1.414 -.586c-.375 -.375 -.586 -.884 -.586 -1.414v-10c0 -.53 .211 -1.039 .586 -1.414c.375 -.375 .884 -.586 1.414 -.586h2m12 3.12v-1.12c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-2"
+                                            />
+                                            <path
+                                              d="M16 10v-6c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-4c-.53 0 -1.039 .211 -1.414 .586c-.375 .375 -.586 .884 -.586 1.414v6m8 0h-8m8 0h1m-9 0h-1"
+                                            />
+                                            <path d="M8 14v.01" />
+                                            <path d="M8 17v.01" />
+                                            <path d="M12 13.99v.01" />
+                                            <path d="M12 17v.01" />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>4</td>
+                                      <td>$473.21</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-orange text-orange-fg"
+                                        >
+                                          Pendiente
+                                        </span>
+                                      </td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-secondary">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-cash-register"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M21 15h-2.5c-.398 0 -.779 .158 -1.061 .439c-.281 .281 -.439 .663 -.439 1.061c0 .398 .158 .779 .439 1.061c.281 .281 .663 .439 1.061 .439h1c.398 0 .779 .158 1.061 .439c.281 .281 .439 .663 .439 1.061c0 .398 -.158 .779 -.439 1.061c-.281 .281 -.663 .439 -1.061 .439h-2.5"
+                                            />
+                                            <path d="M19 21v1m0 -8v1" />
+                                            <path
+                                              d="M13 21h-7c-.53 0 -1.039 -.211 -1.414 -.586c-.375 -.375 -.586 -.884 -.586 -1.414v-10c0 -.53 .211 -1.039 .586 -1.414c.375 -.375 .884 -.586 1.414 -.586h2m12 3.12v-1.12c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-2"
+                                            />
+                                            <path
+                                              d="M16 10v-6c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-4c-.53 0 -1.039 .211 -1.414 .586c-.375 .375 -.586 .884 -.586 1.414v6m8 0h-8m8 0h1m-9 0h-1"
+                                            />
+                                            <path d="M8 14v.01" />
+                                            <path d="M8 17v.01" />
+                                            <path d="M12 13.99v.01" />
+                                            <path d="M12 17v.01" />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="4">Deuda Restante:</td>
+                                      <td colspan="6">$970.28 MXN</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-4">
+                              <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapse-4"
+                                aria-expanded="false"
+                              >
+                                #6698
+                              </button>
+                            </h2>
+                            <div
+                              id="collapse-4"
+                              class="accordion-collapse collapse"
+                              data-bs-parent="#accordion-example"
+                            >
+                              <div class="accordion-body pt-0">
+                                <table
+                                  class="table table-vcenter card-table dt-responsive"
+                                >
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>CUOTA</th>
+                                      <th>MULTA</th>
+                                      <th>ABONO</th>
+                                      <th>SALDO</th>
+                                      <th>ESTADO</th>
+                                      <th>METODO DE PAGO</th>
+                                      <th>REFERENCIA</th>
+                                      <th>FECHA</th>
+                                      <th>ACCIONES</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>0</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>$1500.00</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-green text-green-fg"
+                                        >
+                                          Cobrado
+                                        </span>
+                                      </td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>31-08-2024</td>
+                                      <td>-</td>
+                                    </tr>
+                                    <tr>
+                                      <td>1</td>
+                                      <td>$473.21</td>
+                                      <td>$0.00</td>
+                                      <td>$473.21</td>
+                                      <td>$1176.79</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-green text-green-fg"
+                                        >
+                                          Cobrado
+                                        </span>
+                                      </td>
+                                      <td>Efectivo</td>
+                                      <td>0000</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-info">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-printer"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2"
+                                            />
+                                            <path
+                                              d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4"
+                                            />
+                                            <path
+                                              d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z"
+                                            />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>2</td>
+                                      <td>$473.21</td>
+                                      <td>$0.00</td>
+                                      <td>$473.21</td>
+                                      <td>$821.26</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-green text-green-fg"
+                                        >
+                                          Cobrado
+                                        </span>
+                                      </td>
+                                      <td>Tranferencia</td>
+                                      <td>1254</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-info">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-printer"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2"
+                                            />
+                                            <path
+                                              d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4"
+                                            />
+                                            <path
+                                              d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z"
+                                            />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>3</td>
+                                      <td>$473.21</td>
+                                      <td>$23.76</td>
+                                      <td>$0.00</td>
+                                      <td>$430.18</td>
+                                      <td>
+                                        <span class="badge bg-red text-red-fg">
+                                          Vencido
+                                        </span>
+                                      </td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-secondary">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-cash-register"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M21 15h-2.5c-.398 0 -.779 .158 -1.061 .439c-.281 .281 -.439 .663 -.439 1.061c0 .398 .158 .779 .439 1.061c.281 .281 .663 .439 1.061 .439h1c.398 0 .779 .158 1.061 .439c.281 .281 .439 .663 .439 1.061c0 .398 -.158 .779 -.439 1.061c-.281 .281 -.663 .439 -1.061 .439h-2.5"
+                                            />
+                                            <path d="M19 21v1m0 -8v1" />
+                                            <path
+                                              d="M13 21h-7c-.53 0 -1.039 -.211 -1.414 -.586c-.375 -.375 -.586 -.884 -.586 -1.414v-10c0 -.53 .211 -1.039 .586 -1.414c.375 -.375 .884 -.586 1.414 -.586h2m12 3.12v-1.12c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-2"
+                                            />
+                                            <path
+                                              d="M16 10v-6c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-4c-.53 0 -1.039 .211 -1.414 .586c-.375 .375 -.586 .884 -.586 1.414v6m8 0h-8m8 0h1m-9 0h-1"
+                                            />
+                                            <path d="M8 14v.01" />
+                                            <path d="M8 17v.01" />
+                                            <path d="M12 13.99v.01" />
+                                            <path d="M12 17v.01" />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td>4</td>
+                                      <td>$473.21</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>$0.00</td>
+                                      <td>
+                                        <span
+                                          class="badge bg-orange text-orange-fg"
+                                        >
+                                          Pendiente
+                                        </span>
+                                      </td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>31-08-2024</td>
+                                      <td>
+                                        <button class="btn btn-secondary">
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-cash-register"
+                                            style="margin: 0"
+                                          >
+                                            <path
+                                              stroke="none"
+                                              d="M0 0h24v24H0z"
+                                              fill="none"
+                                            />
+                                            <path
+                                              d="M21 15h-2.5c-.398 0 -.779 .158 -1.061 .439c-.281 .281 -.439 .663 -.439 1.061c0 .398 .158 .779 .439 1.061c.281 .281 .663 .439 1.061 .439h1c.398 0 .779 .158 1.061 .439c.281 .281 .439 .663 .439 1.061c0 .398 -.158 .779 -.439 1.061c-.281 .281 -.663 .439 -1.061 .439h-2.5"
+                                            />
+                                            <path d="M19 21v1m0 -8v1" />
+                                            <path
+                                              d="M13 21h-7c-.53 0 -1.039 -.211 -1.414 -.586c-.375 -.375 -.586 -.884 -.586 -1.414v-10c0 -.53 .211 -1.039 .586 -1.414c.375 -.375 .884 -.586 1.414 -.586h2m12 3.12v-1.12c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-2"
+                                            />
+                                            <path
+                                              d="M16 10v-6c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586h-4c-.53 0 -1.039 .211 -1.414 .586c-.375 .375 -.586 .884 -.586 1.414v6m8 0h-8m8 0h1m-9 0h-1"
+                                            />
+                                            <path d="M8 14v.01" />
+                                            <path d="M8 17v.01" />
+                                            <path d="M12 13.99v.01" />
+                                            <path d="M12 17v.01" />
+                                          </svg>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="4">Deuda Restante:</td>
+                                      <td colspan="6">$970.28 MXN</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="card-footer bg-transparent mt-auto">
+                      <div class="btn-list justify-content-end">
+                        <a href="#" class="btn"> Cancel </a>
+                        <a href="#" class="btn btn-primary"> Submit </a>
+                      </div>
+                    </div> -->
+                    </div>
+
+                    <div class="tab-pane" id="asignar-prestamo">
+                      <div class="card-body">
+                        <h2 class="mb-4">Asignar Prestamo</h2>
+                      </div>
+                      <!-- <div class="card-footer bg-transparent mt-auto">
+                      <div class="btn-list justify-content-end">
+                        <a href="#" class="btn"> Cancel </a>
+                        <a href="#" class="btn btn-primary"> Submit </a>
+                      </div>
+                    </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer footer-transparent d-print-none">
+          <div class="container-xl">
+            <div class="row text-center align-items-center flex-row-reverse">
+              <div class="col-lg-auto ms-lg-auto">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item">
+                    <a
+                      href="https://tabler.io/docs"
+                      target="_blank"
+                      class="link-secondary"
+                      rel="noopener"
+                      >Documentation</a
+                    >
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="./license.html" class="link-secondary">License</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a
+                      href="https://github.com/tabler/tabler"
+                      target="_blank"
+                      class="link-secondary"
+                      rel="noopener"
+                      >Source code</a
+                    >
+                  </li>
+                  <li class="list-inline-item">
+                    <a
+                      href="https://github.com/sponsors/codecalm"
+                      target="_blank"
+                      class="link-secondary"
+                      rel="noopener"
+                    >
+                      <!-- Download SVG icon from http://tabler-icons.io/i/heart -->
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon text-pink icon-filled icon-inline"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path
+                          d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
+                        />
+                      </svg>
+                      Sponsor
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item">
+                    Copyright &copy; 2024
+                    <a href="#" class="link-secondary">MONE-Y</a>. All rights
+                    reserved.
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="link-secondary" rel="noopener">
+                      v1.0.0-beta20
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- Libs JS -->
+    <script
+      src="./dist/libs/apexcharts/dist/apexcharts.min.js?1692870487"
+      defer
+    ></script>
+    <script
+      src="./dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487"
+      defer
+    ></script>
+    <script
+      src="./dist/libs/jsvectormap/dist/maps/world.js?1692870487"
+      defer
+    ></script>
+    <script
+      src="./dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487"
+      defer
+    ></script>
+    <!-- Tabler Core -->
+    <script src="./dist/js/tabler.min.js?1692870487" defer></script>
+    <script src="./dist/js/demo.min.js?1692870487" defer></script>
+  </body>
+</html>
