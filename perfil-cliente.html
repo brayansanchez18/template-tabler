@@ -38,6 +38,11 @@
         font-feature-settings: "cv03", "cv04", "cv11";
       }
     </style>
+    <link rel="stylesheet" href="./dist/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="./dist/css/datatables-responsive.min.css" />
+    <script src="./dist/js/jquery-3.7.1.min.js"></script>
+    <script src="./dist/js/dataTables.js"></script>
+    <script src="./dist/js/datatables-responsive.min.js"></script>
   </head>
   <body>
     <script src="./dist/js/demo-theme.min.js?1692870487"></script>
@@ -850,49 +855,29 @@
                               class="accordion-collapse collapse show"
                               data-bs-parent="#accordion-example"
                             >
-                              <div class="accordion-body pt-0">
-                                <table
-                                  class="table table-vcenter card-table dt-responsive"
-                                >
+                              <div class="accordion-body pt-0 table-responsive">
+                                <table class="table table-vcenter card-table">
                                   <thead>
                                     <tr>
                                       <th>#</th>
                                       <th>CUOTA</th>
                                       <th>MULTA</th>
+                                      <th>TOTAL</th>
                                       <th>ABONO</th>
-                                      <th>SALDO</th>
                                       <th>ESTADO</th>
                                       <th>METODO DE PAGO</th>
                                       <th>REFERENCIA</th>
-                                      <th>FECHA</th>
+                                      <th>VENCIMIENTO</th>
                                       <th>ACCIONES</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <tr>
-                                      <td>0</td>
-                                      <td>$0.00</td>
-                                      <td>$0.00</td>
-                                      <td>$0.00</td>
-                                      <td>$1500.00</td>
-                                      <td>
-                                        <span
-                                          class="badge bg-green text-green-fg"
-                                        >
-                                          Cobrado
-                                        </span>
-                                      </td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>31-08-2024</td>
-                                      <td>-</td>
-                                    </tr>
-                                    <tr>
                                       <td>1</td>
                                       <td>$473.21</td>
                                       <td>$0.00</td>
                                       <td>$473.21</td>
-                                      <td>$1176.79</td>
+                                      <td>$473.21</td>
                                       <td>
                                         <span
                                           class="badge bg-green text-green-fg"
@@ -941,7 +926,7 @@
                                       <td>$473.21</td>
                                       <td>$0.00</td>
                                       <td>$473.21</td>
-                                      <td>$821.26</td>
+                                      <td>$473.21</td>
                                       <td>
                                         <span
                                           class="badge bg-green text-green-fg"
@@ -989,8 +974,8 @@
                                       <td>3</td>
                                       <td>$473.21</td>
                                       <td>$23.76</td>
-                                      <td>$0.00</td>
-                                      <td>$430.18</td>
+                                      <td>$496.97</td>
+                                      <td>$493.97</td>
                                       <td>
                                         <span class="badge bg-red text-red-fg">
                                           Vencido
@@ -1093,7 +1078,7 @@
                                     </tr>
                                     <tr>
                                       <td colspan="4">Deuda Restante:</td>
-                                      <td colspan="6">$970.28 MXN</td>
+                                      <td colspan="6">$970.18 MXN</td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -1117,49 +1102,29 @@
                               class="accordion-collapse collapse"
                               data-bs-parent="#accordion-example"
                             >
-                              <div class="accordion-body pt-0">
-                                <table
-                                  class="table table-vcenter card-table dt-responsive"
-                                >
+                              <div class="accordion-body pt-0 table-responsive">
+                                <table class="table table-vcenter card-table">
                                   <thead>
                                     <tr>
                                       <th>#</th>
                                       <th>CUOTA</th>
                                       <th>MULTA</th>
+                                      <th>TOTAL</th>
                                       <th>ABONO</th>
-                                      <th>SALDO</th>
                                       <th>ESTADO</th>
                                       <th>METODO DE PAGO</th>
                                       <th>REFERENCIA</th>
-                                      <th>FECHA</th>
+                                      <th>VENCIMIENTO</th>
                                       <th>ACCIONES</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <tr>
-                                      <td>0</td>
-                                      <td>$0.00</td>
-                                      <td>$0.00</td>
-                                      <td>$0.00</td>
-                                      <td>$1500.00</td>
-                                      <td>
-                                        <span
-                                          class="badge bg-green text-green-fg"
-                                        >
-                                          Cobrado
-                                        </span>
-                                      </td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>31-08-2024</td>
-                                      <td>-</td>
-                                    </tr>
-                                    <tr>
                                       <td>1</td>
                                       <td>$473.21</td>
                                       <td>$0.00</td>
                                       <td>$473.21</td>
-                                      <td>$1176.79</td>
+                                      <td>$473.21</td>
                                       <td>
                                         <span
                                           class="badge bg-green text-green-fg"
@@ -1208,7 +1173,7 @@
                                       <td>$473.21</td>
                                       <td>$0.00</td>
                                       <td>$473.21</td>
-                                      <td>$821.26</td>
+                                      <td>$473.21</td>
                                       <td>
                                         <span
                                           class="badge bg-green text-green-fg"
@@ -1256,8 +1221,8 @@
                                       <td>3</td>
                                       <td>$473.21</td>
                                       <td>$23.76</td>
-                                      <td>$0.00</td>
-                                      <td>$430.18</td>
+                                      <td>$496.97</td>
+                                      <td>$493.97</td>
                                       <td>
                                         <span class="badge bg-red text-red-fg">
                                           Vencido
@@ -1360,7 +1325,7 @@
                                     </tr>
                                     <tr>
                                       <td colspan="4">Deuda Restante:</td>
-                                      <td colspan="6">$970.28 MXN</td>
+                                      <td colspan="6">$970.18 MXN</td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -1384,49 +1349,29 @@
                               class="accordion-collapse collapse"
                               data-bs-parent="#accordion-example"
                             >
-                              <div class="accordion-body pt-0">
-                                <table
-                                  class="table table-vcenter card-table dt-responsive"
-                                >
+                              <div class="accordion-body pt-0 table-responsive">
+                                <table class="table table-vcenter card-table">
                                   <thead>
                                     <tr>
                                       <th>#</th>
                                       <th>CUOTA</th>
                                       <th>MULTA</th>
+                                      <th>TOTAL</th>
                                       <th>ABONO</th>
-                                      <th>SALDO</th>
                                       <th>ESTADO</th>
                                       <th>METODO DE PAGO</th>
                                       <th>REFERENCIA</th>
-                                      <th>FECHA</th>
+                                      <th>VENCIMIENTO</th>
                                       <th>ACCIONES</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <tr>
-                                      <td>0</td>
-                                      <td>$0.00</td>
-                                      <td>$0.00</td>
-                                      <td>$0.00</td>
-                                      <td>$1500.00</td>
-                                      <td>
-                                        <span
-                                          class="badge bg-green text-green-fg"
-                                        >
-                                          Cobrado
-                                        </span>
-                                      </td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>31-08-2024</td>
-                                      <td>-</td>
-                                    </tr>
-                                    <tr>
                                       <td>1</td>
                                       <td>$473.21</td>
                                       <td>$0.00</td>
                                       <td>$473.21</td>
-                                      <td>$1176.79</td>
+                                      <td>$473.21</td>
                                       <td>
                                         <span
                                           class="badge bg-green text-green-fg"
@@ -1475,7 +1420,7 @@
                                       <td>$473.21</td>
                                       <td>$0.00</td>
                                       <td>$473.21</td>
-                                      <td>$821.26</td>
+                                      <td>$473.21</td>
                                       <td>
                                         <span
                                           class="badge bg-green text-green-fg"
@@ -1523,8 +1468,8 @@
                                       <td>3</td>
                                       <td>$473.21</td>
                                       <td>$23.76</td>
-                                      <td>$0.00</td>
-                                      <td>$430.18</td>
+                                      <td>$496.97</td>
+                                      <td>$493.97</td>
                                       <td>
                                         <span class="badge bg-red text-red-fg">
                                           Vencido
@@ -1627,7 +1572,7 @@
                                     </tr>
                                     <tr>
                                       <td colspan="4">Deuda Restante:</td>
-                                      <td colspan="6">$970.28 MXN</td>
+                                      <td colspan="6">$970.18 MXN</td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -1651,49 +1596,29 @@
                               class="accordion-collapse collapse"
                               data-bs-parent="#accordion-example"
                             >
-                              <div class="accordion-body pt-0">
-                                <table
-                                  class="table table-vcenter card-table dt-responsive"
-                                >
+                              <div class="accordion-body pt-0 table-responsive">
+                                <table class="table table-vcenter card-table">
                                   <thead>
                                     <tr>
                                       <th>#</th>
                                       <th>CUOTA</th>
                                       <th>MULTA</th>
+                                      <th>TOTAL</th>
                                       <th>ABONO</th>
-                                      <th>SALDO</th>
                                       <th>ESTADO</th>
                                       <th>METODO DE PAGO</th>
                                       <th>REFERENCIA</th>
-                                      <th>FECHA</th>
+                                      <th>VENCIMIENTO</th>
                                       <th>ACCIONES</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <tr>
-                                      <td>0</td>
-                                      <td>$0.00</td>
-                                      <td>$0.00</td>
-                                      <td>$0.00</td>
-                                      <td>$1500.00</td>
-                                      <td>
-                                        <span
-                                          class="badge bg-green text-green-fg"
-                                        >
-                                          Cobrado
-                                        </span>
-                                      </td>
-                                      <td>-</td>
-                                      <td>-</td>
-                                      <td>31-08-2024</td>
-                                      <td>-</td>
-                                    </tr>
-                                    <tr>
                                       <td>1</td>
                                       <td>$473.21</td>
                                       <td>$0.00</td>
                                       <td>$473.21</td>
-                                      <td>$1176.79</td>
+                                      <td>$473.21</td>
                                       <td>
                                         <span
                                           class="badge bg-green text-green-fg"
@@ -1742,7 +1667,7 @@
                                       <td>$473.21</td>
                                       <td>$0.00</td>
                                       <td>$473.21</td>
-                                      <td>$821.26</td>
+                                      <td>$473.21</td>
                                       <td>
                                         <span
                                           class="badge bg-green text-green-fg"
@@ -1790,8 +1715,8 @@
                                       <td>3</td>
                                       <td>$473.21</td>
                                       <td>$23.76</td>
-                                      <td>$0.00</td>
-                                      <td>$430.18</td>
+                                      <td>$496.97</td>
+                                      <td>$493.97</td>
                                       <td>
                                         <span class="badge bg-red text-red-fg">
                                           Vencido
@@ -1894,7 +1819,7 @@
                                     </tr>
                                     <tr>
                                       <td colspan="4">Deuda Restante:</td>
-                                      <td colspan="6">$970.28 MXN</td>
+                                      <td colspan="6">$970.18 MXN</td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -2023,5 +1948,6 @@
     <!-- Tabler Core -->
     <script src="./dist/js/tabler.min.js?1692870487" defer></script>
     <script src="./dist/js/demo.min.js?1692870487" defer></script>
+    <script src="./js/clientes.js"></script>
   </body>
 </html>
